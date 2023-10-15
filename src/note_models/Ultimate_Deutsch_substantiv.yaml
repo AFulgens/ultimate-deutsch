@@ -1,0 +1,23 @@
+name: UD Substantiv
+id: 7c59b4ae-daac-4b2f-9db2-411b2348eec0
+css_file: src/note_models/style.css
+fields:
+  - name: word
+  - name: english
+  - name: hint
+  - name: nominativ
+  - name: spezifizierung_pk
+  - name: geschlecht
+  - name: nominativ (plural)
+  - name: genitiv
+  - name: genitiv (plural)
+  - name: dativ
+  - name: dativ (plural)
+  - name: akkusativ
+  - name: akkusativ (plural)
+  - name: hinweis
+templates:
+  - name: Singular Nominativ
+    html_file: src/note_models/substantiv/singular_nominativ.html
+  - name: Plural Nominativ
+    html_file: src/note_models/substantiv/plural_nominativ.html

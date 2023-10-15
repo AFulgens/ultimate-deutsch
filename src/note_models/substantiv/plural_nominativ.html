@@ -1,9 +1,8 @@
-Substantiv
 <div class="type">Hauptwort</div>
-<div class="value">{{Nominativ}}</div>
-{{#Spezifizierung_pk}}
-<div class="info">({{Spezifizierung_pk}})</div>
-{{/Spezifizierung_pk}}
+<div class="value">{{nominativ}}</div>
+{{#spezifizierung_pk}}
+<div class="info">({{spezifizierung_pk}})</div>
+{{/spezifizierung_pk}}
 
 <table>
     <tr>
@@ -14,64 +13,64 @@ Substantiv
     <tr>
         <th>Nominativ</th>
         <td>
-            <div id="singular-nominativ">##ART## {{Nominativ}}</div>
+            <div id="singular-nominativ">##ART## {{nominativ}}</div>
         </td>
         <td>
             <div id="plural-nominativ">
-                {{#Nominativ (Plural)}}
-                    ##ART## {{Nominativ (Plural)}}
-                {{/Nominativ (Plural)}}
-                {{^Nominativ (Plural)}}
+                {{#nominativ (plural)}}
+                    ##ART## {{nominativ (plural)}}
+                {{/nominativ (plural)}}
+                {{^nominativ (plural)}}
                     &mdash;
-                {{/Nominativ (Plural)}}
+                {{/nominativ (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Genitiv</th>
         <td>
-            <div id="singular-genitiv">##ART## {{Genitiv}}</div>
+            <div id="singular-genitiv">##ART## {{genitiv}}</div>
         </td>
         <td>
             <div id="plural-genitiv">
-                {{#Genitiv (Plural)}}
-                    ##ART## {{Genitiv (Plural)}}
-                {{/Genitiv (Plural)}}
-                {{^Genitiv (Plural)}}
+                {{#genitiv (plural)}}
+                    ##ART## {{genitiv (plural)}}
+                {{/genitiv (plural)}}
+                {{^genitiv (plural)}}
                     &mdash;
-                {{/Genitiv (Plural)}}
+                {{/genitiv (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Dativ</th>
         <td>
-            <div id="singular-dativ">##ART## {{Dativ}}</div>
+            <div id="singular-dativ">##ART## {{dativ}}</div>
         </td>
         <td>
             <div id="plural-dativ">
-                {{#Dativ (Plural)}}
-                    ##ART## {{Dativ (Plural)}}
-                {{/Dativ (Plural)}}
-                {{^Dativ (Plural)}}
+                {{#dativ (plural)}}
+                    ##ART## {{dativ (plural)}}
+                {{/dativ (plural)}}
+                {{^dativ (plural)}}
                     &mdash;
-                {{/Dativ (Plural)}}
+                {{/dativ (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Akkusativ</th>
         <td>
-            <div id="singular-akkusativ">##ART## {{Akkusativ}}</div>
+            <div id="singular-akkusativ">##ART## {{akkusativ}}</div>
         </td>
         <td>
             <div id="plural-akkusativ">
-                {{#Akkusativ (Plural)}}
-                    ##ART## {{Akkusativ (Plural)}}
-                {{/Akkusativ (Plural)}}
-                {{^Akkusativ (Plural)}}
+                {{#akkusativ (plural)}}
+                    ##ART## {{akkusativ (plural)}}
+                {{/akkusativ (plural)}}
+                {{^akkusativ (plural)}}
                     &mdash;
-                {{/Akkusativ (Plural)}}
+                {{/akkusativ (plural)}}
             </div>
         </td>
     </tr>
@@ -79,14 +78,14 @@ Substantiv
 
 <hr />
 
-{{#Hinweis}}
-<div class="type">Hinweis:</div> {{Hinweis}}
+{{#hinweis}}
+<div class="type">Hinweis:</div> {{hinweis}}
 <br /><br />
-{{/Hinweis}}
-<div class="type">Englich:</div> {{English}}
-{{#Hint}}
-<div class="info">Hint:</div> {{Hint}}
-{{/Hint}}
+{{/hinweis}}
+<div class="type">English:</div> {{english}}
+{{#hint}}
+<div class="info">Hint:</div> {{hint}}
+{{/hint}}
 
 <script>
     var isFront = true
@@ -99,8 +98,8 @@ Substantiv
     articles.set("plural-dativ", "den")
     articles.set("plural-akkusativ", "die")
 
-    if ('{{Geschlecht}}'.indexOf("maskulin") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(maskulin)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("maskulin") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(maskulin)") !== -1) {
             articles.set("singular-nominativ", "(der)")
             articles.set("singular-genitiv", "(des)")
             articles.set("singular-dativ", "(dem)")
@@ -112,8 +111,8 @@ Substantiv
             articles.set("singular-akkusativ", "den")
         }
     }
-    if ('{{Geschlecht}}'.indexOf("feminin") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(feminin)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("feminin") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(feminin)") !== -1) {
             articles.set("singular-nominativ", articles.has("singular-nominativ") ? articles.get("singular-nominativ") + " (oder die)" : "(die)")
             articles.set("singular-genitiv", articles.has("singular-genitiv") ? articles.get("singular-genitiv") + " (oder der)" : "(der)")
             articles.set("singular-dativ", articles.has("singular-dativ") ? articles.get("singular-dativ") + " (oder der)" : "(der)")
@@ -125,8 +124,8 @@ Substantiv
             articles.set("singular-akkusativ", articles.has("singular-akkusativ") ? articles.get("singular-akkusativ") + " oder die" : "die")
         }
     }
-    if ('{{Geschlecht}}'.indexOf("Neutrum") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(Neutrum)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("Neutrum") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(Neutrum)") !== -1) {
             articles.set("singular-nominativ", articles.has("singular-nominativ") ? articles.get("singular-nominativ") + " (oder das)" : "(das)")
             articles.set("singular-genitiv", articles.has("singular-genitiv") ? articles.get("singular-genitiv") + " (oder des)" : "(des)")
             articles.set("singular-dativ", articles.has("singular-dativ") ? articles.get("singular-dativ") + " (oder dem)" : "(dem)")
@@ -162,12 +161,11 @@ Substantiv
 
 --
 
-Substantiv
 <div class="type">Hauptwort</div>
-<div class="value">{{Nominativ}}</div>
-{{#Spezifizierung_pk}}
-<div class="info">({{Spezifizierung_pk}})</div>
-{{/Spezifizierung_pk}}
+<div class="value">{{nominativ}}</div>
+{{#spezifizierung_pk}}
+<div class="info">({{spezifizierung_pk}})</div>
+{{/spezifizierung_pk}}
 
 <table>
     <tr>
@@ -178,64 +176,64 @@ Substantiv
     <tr>
         <th>Nominativ</th>
         <td>
-            <div id="singular-nominativ">##ART## {{Nominativ}}</div>
+            <div id="singular-nominativ">##ART## {{nominativ}}</div>
         </td>
         <td>
             <div id="plural-nominativ">
-                {{#Nominativ (Plural)}}
-                    ##ART## {{Nominativ (Plural)}}
-                {{/Nominativ (Plural)}}
-                {{^Nominativ (Plural)}}
+                {{#nominativ (plural)}}
+                    ##ART## {{nominativ (plural)}}
+                {{/nominativ (plural)}}
+                {{^nominativ (plural)}}
                     &mdash;
-                {{/Nominativ (Plural)}}
+                {{/nominativ (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Genitiv</th>
         <td>
-            <div id="singular-genitiv">##ART## {{Genitiv}}</div>
+            <div id="singular-genitiv">##ART## {{genitiv}}</div>
         </td>
         <td>
             <div id="plural-genitiv">
-                {{#Genitiv (Plural)}}
-                    ##ART## {{Genitiv (Plural)}}
-                {{/Genitiv (Plural)}}
-                {{^Genitiv (Plural)}}
+                {{#genitiv (plural)}}
+                    ##ART## {{genitiv (plural)}}
+                {{/genitiv (plural)}}
+                {{^genitiv (plural)}}
                     &mdash;
-                {{/Genitiv (Plural)}}
+                {{/genitiv (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Dativ</th>
         <td>
-            <div id="singular-dativ">##ART## {{Dativ}}</div>
+            <div id="singular-dativ">##ART## {{dativ}}</div>
         </td>
         <td>
             <div id="plural-dativ">
-                {{#Dativ (Plural)}}
-                    ##ART## {{Dativ (Plural)}}
-                {{/Dativ (Plural)}}
-                {{^Dativ (Plural)}}
+                {{#dativ (plural)}}
+                    ##ART## {{dativ (plural)}}
+                {{/dativ (plural)}}
+                {{^dativ (plural)}}
                     &mdash;
-                {{/Dativ (Plural)}}
+                {{/dativ (plural)}}
             </div>
         </td>
     </tr>
     <tr>
         <th>Akkusativ</th>
         <td>
-            <div id="singular-akkusativ">##ART## {{Akkusativ}}</div>
+            <div id="singular-akkusativ">##ART## {{akkusativ}}</div>
         </td>
         <td>
             <div id="plural-akkusativ">
-                {{#Akkusativ (Plural)}}
-                    ##ART## {{Akkusativ (Plural)}}
-                {{/Akkusativ (Plural)}}
-                {{^Akkusativ (Plural)}}
+                {{#akkusativ (plural)}}
+                    ##ART## {{akkusativ (plural)}}
+                {{/akkusativ (plural)}}
+                {{^akkusativ (plural)}}
                     &mdash;
-                {{/Akkusativ (Plural)}}
+                {{/akkusativ (plural)}}
             </div>
         </td>
     </tr>
@@ -243,14 +241,14 @@ Substantiv
 
 <hr />
 
-{{#Hinweis}}
-<div class="type">Hinweis:</div> {{Hinweis}}
+{{#hinweis}}
+<div class="type">Hinweis:</div> {{hinweis}}
 <br /><br />
-{{/Hinweis}}
-<div class="type">English:</div> {{English}}
-{{#Hint}}
-<div class="info">Hint:</div> {{Hint}}
-{{/Hint}}
+{{/hinweis}}
+<div class="type">English:</div> {{english}}
+{{#hint}}
+<div class="info">Hint:</div> {{hint}}
+{{/hint}}
 
 <script>
     var isFront = false
@@ -263,8 +261,8 @@ Substantiv
     articles.set("plural-dativ", "den")
     articles.set("plural-akkusativ", "die")
 
-    if ('{{Geschlecht}}'.indexOf("maskulin") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(maskulin)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("maskulin") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(maskulin)") !== -1) {
             articles.set("singular-nominativ", "(der)")
             articles.set("singular-genitiv", "(des)")
             articles.set("singular-dativ", "(dem)")
@@ -276,8 +274,8 @@ Substantiv
             articles.set("singular-akkusativ", "den")
         }
     }
-    if ('{{Geschlecht}}'.indexOf("feminin") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(feminin)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("feminin") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(feminin)") !== -1) {
             articles.set("singular-nominativ", articles.has("singular-nominativ") ? articles.get("singular-nominativ") + " (oder die)" : "(die)")
             articles.set("singular-genitiv", articles.has("singular-genitiv") ? articles.get("singular-genitiv") + " (oder der)" : "(der)")
             articles.set("singular-dativ", articles.has("singular-dativ") ? articles.get("singular-dativ") + " (oder der)" : "(der)")
@@ -289,8 +287,8 @@ Substantiv
             articles.set("singular-akkusativ", articles.has("singular-akkusativ") ? articles.get("singular-akkusativ") + " oder die" : "die")
         }
     }
-    if ('{{Geschlecht}}'.indexOf("Neutrum") !== -1) {
-        if ('{{Geschlecht}}'.indexOf("(Neutrum)") !== -1) {
+    if ('{{geschlecht}}'.indexOf("Neutrum") !== -1) {
+        if ('{{geschlecht}}'.indexOf("(Neutrum)") !== -1) {
             articles.set("singular-nominativ", articles.has("singular-nominativ") ? articles.get("singular-nominativ") + " (oder das)" : "(das)")
             articles.set("singular-genitiv", articles.has("singular-genitiv") ? articles.get("singular-genitiv") + " (oder des)" : "(des)")
             articles.set("singular-dativ", articles.has("singular-dativ") ? articles.get("singular-dativ") + " (oder dem)" : "(dem)")

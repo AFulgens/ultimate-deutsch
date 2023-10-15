@@ -1,0 +1,41 @@
+name: UD Verb
+id: 0a4a66dc-6d14-4058-a165-2722b2a3bb04
+css_file: src/note_models/style.css
+fields:
+  - name: word
+  - name: english
+  - name: hint
+  - name: praesens singular 1
+  - name: praesens singular 3
+  - name: praesens singular 2
+  - name: praesens plural 1
+  - name: praesens plural 2
+  - name: praesens plural 3
+  - name: praesens konjuktiv singular 1
+  - name: praesens konjuktiv singular 2
+  - name: praesens konjuktiv singular 3
+  - name: praesens konjuktiv plural 1
+  - name: praesens konjuktiv plural 2
+  - name: praesens konjuktiv plural 3
+  - name: imperativ singular 2
+  - name: imperativ plural 2
+  - name: praeteritum singular 1
+  - name: praeteritum singular 2
+  - name: praeteritum singular 3
+  - name: praeteritum plural 1
+  - name: praeteritum plural 2
+  - name: praeteritum plural 3
+  - name: praeteritum konjuktiv singular 1
+  - name: praeteritum konjuktiv singular 2
+  - name: praeteritum konjuktiv singular 3
+  - name: praeteritum konjuktiv plural 1
+  - name: praeteritum konjuktiv plural 2
+  - name: praeteritum konjuktiv plural 3
+  - name: partizip 1
+  - name: partizip 2
+  - name: infinitiv
+  - name: perfekt mit
+  - name: perfekt hinweis
+templates:
+  - name: Praesens Singular
+    html_file: src/note_models/verb/praesens_singular_1.html

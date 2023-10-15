@@ -1,59 +1,94 @@
 - generate_guids_in_csvs:
     source:
-      - src/data/guid.csv
+      - src/data/word.csv
     columns:
       - guid
 
 - build_parts:
   - note_model_from_yaml_part:
-      part_id: Ultimate Deutsch
-      file: src/note_models/Ultimate_Deutsch.yaml
-#  - note_model_from_yaml_part:
-#      part_id: Ultimate Deutsch [A1]
-#      file: src/note_models/Ultimate_Deutsch_[A1].yaml
+      part_id: UD Substantiv
+      file: src/note_models/Ultimate_Deutsch_substantiv.yaml
+  - note_model_from_yaml_part:
+      part_id: UD Verb
+      file: src/note_models/Ultimate_Deutsch_verb.yaml
 
   - headers_from_yaml_part:
       - part_id: default header
         file: src/headers/default.yaml
         override:
           deck_description_html_file: src/headers/desc.html
+
   - media_group_from_folder:
     - part_id: all_media
       source: src/media
       recursive: true
 
   - notes_from_csvs:
-      part_id: substantiv
+      part_id: Ultimate Deutsch
 
       note_model_mappings:
         - note_models:
-            - Ultimate Deutsch
+            - UD Substantiv
+            - UD Verb
           columns_to_fields:
             <<:
-              guid             : guid
-              tags             : tags
-              word             : word
-            nominativ        : Nominativ
-            spezifizierung_pk: Spezifizierung_pk
-            geschlecht       : Geschlecht
-            nominativ plural : Nominativ (Plural)
-            genitiv          : Genitiv
-            genitiv plural   : Genitiv (Plural)
-            dativ            : Dativ
-            dativ plural     : Dativ (Plural)
-            akkusativ        : Akkusativ
-            akkusativ plural : Akkusativ (Plural)
-            hinweis          : Hinweis
-            word:en          : English
-            hinweis:en       : Hint
+              guid       : guid
+              tags       : tags
+              word       : word
+              word:en    : english
+              hinweis:en : hint
+            nominativ         : nominativ
+            spezifizierung_pk : spezifizierung_pk
+            geschlecht        : geschlecht
+            nominativ plural  : nominativ (plural)
+            genitiv           : genitiv
+            genitiv plural    : genitiv (plural)
+            dativ             : dativ
+            dativ plural      : dativ (plural)
+            akkusativ         : akkusativ
+            akkusativ plural  : akkusativ (plural)
+            hinweis           : hinweis
+
+            praesens singular 1              : praesens singular 1
+            praesens singular 2              : praesens singular 2
+            praesens singular 3              : praesens singular 3
+            praesens plural 1                : praesens plural 1
+            praesens plural 2                : praesens plural 2
+            praesens plural 3                : praesens plural 3
+            praesens konjuktiv singular 1    : praesens konjuktiv singular 1
+            praesens konjuktiv singular 2    : praesens konjuktiv singular 2
+            praesens konjuktiv singular 3    : praesens konjuktiv singular 3
+            praesens konjuktiv plural 1      : praesens konjuktiv plural 1
+            praesens konjuktiv plural 2      : praesens konjuktiv plural 2
+            praesens konjuktiv plural 3      : praesens konjuktiv plural 3
+            imperativ singular 2             : imperativ singular 2
+            imperativ plural 2               : imperativ plural 2
+            praeteritum singular 1           : praeteritum singular 1
+            praeteritum singular 2           : praeteritum singular 2
+            praeteritum singular 3           : praeteritum singular 3
+            praeteritum plural 1             : praeteritum plural 1
+            praeteritum plural 2             : praeteritum plural 2
+            praeteritum plural 3             : praeteritum plural 3
+            praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
+            praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
+            praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
+            praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
+            praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
+            praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
+            partizip 1                       : partizip 1
+            partizip 2                       : partizip 2
+            infinitiv                        : infinitiv
+            perfekt mit                      : perfekt mit
+            perfekt hinweis                  : perfekt hinweis
 
           personal_fields: [ ]
       file_mappings:
         - file: src/data/word.csv
-          note_model: Ultimate Deutsch
           derivatives:
-            - file: src/data/guid.csv
             - file: src/data/substantiv.csv
+              note_model: UD Substantiv
+            - file: src/data/verb.csv
+              note_model: UD Verb
 
 - generate_crowd_anki:
     <<:
@@ -62,10 +97,11 @@
         parts: [all_media]
       note_models:
         parts:
-          - part_id: Ultimate Deutsch
+          - part_id: UD Substantiv
+          - part_id: UD Verb
     folder: build/Ultimate_Deutsch
     notes:
-      part_id: substantiv
+      part_id: Ultimate Deutsch
 
 #- generate_crowd_anki:
 #        <<: &extended_deck
