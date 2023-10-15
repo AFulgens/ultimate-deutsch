@@ -1,0 +1,52 @@
+- build_parts:
+  - headers_from_crowd_anki:
+      part_id: default
+      source: build/Ultimate_Deutsch
+  - notes_from_crowd_anki:
+      part_id: standard notes
+      sort_order: [word]
+      source: build/Ultimate_Deutsch
+  - note_models_all_from_crowd_anki:
+      source: build/Ultimate_Deutsch
+  - media_group_from_crowd_anki:
+      part_id: all_anki_media
+      source: build/Ultimate_Deutsch
+      recursive: true
+
+- save_media_group_to_folder:
+    parts: [all_anki_media]
+    folder: src/media
+    clear_folder: false
+    recursive: true
+
+- generate_csvs:
+    notes: standard notes
+    file_mappings:
+      - file: src/data/word.csv
+        note_model: Ultimate Deutsch
+        derivatives:
+          - file: src/data/guid.csv
+          - file: src/data/substantiv.csv
+    note_model_mappings:
+      - note_models:
+        - Ultimate Deutsch
+        columns_to_fields:
+          <<:
+            guid           : guid
+            tags           : tags
+            word           : word
+          nominativ        : Nominativ
+          spezifizierung_pk: Spezifizierung_pk
+          geschlecht       : Geschlecht
+          nominativ plural : Nominativ (Plural)
+          genitiv          : Genitiv
+          genitiv plural   : Genitiv (Plural)
+          dativ            : Dativ
+          dativ plural     : Dativ (Plural)
+          akkusativ        : Akkusativ
+          akkusativ plural : Akkusativ (Plural)
+          hinweis          : Hinweis
+          word:en          : English
+          hinweis:en       : Hint
+
+        personal_fields: []

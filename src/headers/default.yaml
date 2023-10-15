@@ -1,0 +1,56 @@
+dyn: 0
+extendNew: 10
+extendRev: 50
+deck_config_uuid: b8b55034-1c8f-4a81-9531-93bad35a7621
+crowdanki_uuid: b8b55034-1c8f-4a81-9531-93bad35a7621
+name: Ultimate Deutsch
+deck_configurations:
+- __type__: DeckConfig
+  crowdanki_uuid: b8b55034-1c8f-4a81-9531-93bad35a7621
+  name: Ultimate Deutsch
+  autoplay: false
+  buryInterdayLearning: false
+  dyn: false
+  interdayLearningMix: 0
+  lapse:
+    delays:
+    - 10.0
+    leechAction: 0
+    leechFails: 8
+    minInt: 1
+    mult: 0.0
+  maxTaken: 60
+  new:
+    bury: true
+    delays:
+    - 1.0
+    - 10.0
+    initialFactor: 2500
+    ints:
+    - 1
+    - 4
+    - 7
+    order: 0
+    perDay: 5
+    separate: true
+  newGatherPriority: 0
+  newMix: 0
+  newPerDayMinimum: 0
+  newSortOrder: 0
+  replayq: true
+  rev:
+    bury: true
+    ease4: 1.3
+    fuzz: 0.05
+    hardFactor: 1.2
+    ivlFct: 1.0
+    maxIvl: 36500
+    minSpace: 1
+    perDay: 100
+  reviewOrder: 0
+  timer: 0
+mid: 1625463068606
+newLimit: null
+newLimitToday: null
+reviewLimit: null
+reviewLimitToday: null

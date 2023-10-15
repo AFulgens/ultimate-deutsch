@@ -1,0 +1,23 @@
+name: Ultimate Deutsch
+id: 7c59b4ae-daac-4b2f-9db2-411b2348eec0
+css_file: src/note_models/style.css
+fields:
+  - name: word
+  - name: Nominativ
+  - name: Spezifizierung_pk
+  - name: Geschlecht
+  - name: Nominativ (Plural)
+  - name: Genitiv
+  - name: Genitiv (Plural)
+  - name: Dativ
+  - name: Dativ (Plural)
+  - name: Akkusativ
+  - name: Akkusativ (Plural)
+  - name: Hinweis
+  - name: English
+  - name: Hint
+templates:
+  - name: Singular Nominativ
+    html_file: src/note_models/substantiv/singular_nominativ.html
+  - name: Plural Nominativ
+    html_file: src/note_models/substantiv/plural_nominativ.html
