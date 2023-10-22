@@ -1,8 +1,9 @@
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
-CSV_FILES := src/data/substantiv.csv src/data/verb.csv
+CSV_FILES := src/data/guid.csv src/data/substantiv.csv src/data/verb.csv
 
 LEVELS := c b2 b1 a2 a1
+LEVELS_WO_C := b2 b1 a2 a1
 
 .SECONDEXPANSION:
 
@@ -32,13 +33,14 @@ yq:
 	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_substantiv.yaml --no-doc -s '"build/note_models/" + .file_name'
 	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_verb.yaml --no-doc -s '"build/note_models/" + .file_name'
 	@for y in $$(find build/note_models -type f -name "*.yaml"); do yq_windows_amd64 '. |  pick(["name", "id", "css_file", "fields", "templates"])' $$y > $$y.tmp; mv $$y.tmp $$y; done
+	@rm ./.yml ||:
 
-chevron: chevron.headers
+chevron:
 	@echo "chevron"
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/singular_nominativ.mustache > ./build/note_models/substantiv/singular_nominativ.html
+	@sed -i 's/\xFC/ü/g' ./build/note_models/substantiv/singular_nominativ.html
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/plural_nominativ.mustache > ./build/note_models/substantiv/plural_nominativ.html
-
-chevron.headers: $(LEVELS:=.chevron.header)
+	@sed -i 's/\xFC/ü/g' ./build/note_models/substantiv/plural_nominativ.html
 
 guid.backmerge:
 	@echo "guid backmerge"
@@ -46,7 +48,7 @@ guid.backmerge:
 
 c.process.sources: c.data
 
-rest.process.sources: $(LEVELS:=.data)
+rest.process.sources: $(LEVELS_WO_C:=.data)
 
 c.brainbrew.source_to_anki:
 	@echo "brainbrew source_to_anki (C)"
@@ -91,14 +93,6 @@ a1.data.base: src/data/word.csv
 	@echo "copy a1 - word"
 	@head -n1 ./src/data/word.csv > ./build/data/a1/word.csv
 	@grep "::A1" ./src/data/word.csv >> ./build/data/a1/word.csv
-
-define chevron_header
-$$(level).chevron.header:
-	@echo "chevron $(level)"
-	@pipenv run chevron -d src/headers/$(level).json src/headers/header.mustache  > ./build/headers/$(level).yaml
-endef
-
-$(foreach level, $(LEVELS), $(eval $(chevron_header)))
 
 define data_dir
 $$(level).data.dir:

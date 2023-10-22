@@ -1,13 +1,13 @@
 dyn: 0
 extendNew: 10
 extendRev: 50
-deck_config_uuid: {{uuid}}
-crowdanki_uuid: {{uuid}}
-name: {{name}}
+deck_config_uuid: 33c2e649-435b-4ef2-8e04-32825d5e0020
+name: REPLACED_IN_RECIPE
+crowdanki_uuid: REPLACED_IN_RECIPE
 deck_configurations:
 - __type__: DeckConfig
-  crowdanki_uuid: {{uuid}}
-  name: {{name}}
+  name: Ultimate Deutsch deck configuration
+  crowdanki_uuid: 33c2e649-435b-4ef2-8e04-32825d5e0020
   autoplay: false
   buryInterdayLearning: false
   dyn: false

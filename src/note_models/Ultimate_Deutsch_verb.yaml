@@ -1,8 +1,8 @@
 css_file: &css_file src/note_models/style.css
 fields: &fields
   - name: word
-  - name: english
-  - name: hint
+  - name: fremd
+  - name: hinweis fremd
   - name: praesens singular 1
   - name: praesens singular 3
   - name: praesens singular 2

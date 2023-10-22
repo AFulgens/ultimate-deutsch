@@ -3,7 +3,15 @@
 To Dos:
 
 - fix verb HTML generation
-- make it multi-language capable
+- make naming consistent (_, -, ␣, camelCase, PascalCase, etc.)
+- anki_to_source and backmerge into CSVs
+- `src/headers/desc.html`
+  - Multi-lingual?
+- Makefile step naming + logging
+- CONTRIBUTING.md
+- README.md
+- sources.csv
+  - Add PDF sources?
 
 Open question:
 
@@ -11,7 +19,9 @@ Open question:
 
 Prereq:
 
-- python 3
-  - Visual C++
-- pipenv
+- Cygwin
+- make
 - yq
+- python 3
+  - Visual C++ distributables (6+ GiB)
+- pipenv

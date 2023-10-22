@@ -1,8 +1,9 @@
 - generate_guids_in_csvs:
     source:
-      - build/data/c/word.csv
+      - build/data/c/guid.csv
     columns:
       - guid
+      - guid:hu
 
 - build_parts:
   - note_model_from_yaml_part:
@@ -13,10 +14,18 @@
       file: build/note_models/c/Ultimate_Deutsch_verb.yaml
 
   - headers_from_yaml_part:
-      - part_id: default header
-        file: build/headers/c.yaml
+      - part_id: default header:c:en
+        file: src/headers/header.yaml
         override:
           deck_description_html_file: build/headers/desc.html
+          crowdanki_uuid: 87b66638-4a46-47c3-995e-2fb86090d331
+          name: Ultimate Deutsch (C1, C2) [EN]
+      - part_id: default header:c:hu
+        file: src/headers/header.yaml
+        override:
+          deck_description_html_file: build/headers/desc.html
+          crowdanki_uuid: 00cc45d5-a04f-4a2b-9db6-fc86c189974e
+          name: Ultimate Deutsch (C1, C2) [HU]
 
   - media_group_from_folder:
     - part_id: all_media
@@ -24,97 +33,104 @@
       recursive: true
 
   - notes_from_csvs:
-      part_id: Ultimate Deutsch C
+      part_id: UD C english
 
       note_model_mappings:
-        - note_models:
+        - note_models: &note_models
             - UD Substantiv C
             - UD Verb C
           columns_to_fields:
-            <<:
-              guid       : guid
+            <<: &columns_to_fields
               tags       : tags
               word       : word
-              word:en    : english
-              hinweis:en : hint
-            nominativ         : nominativ
-            spezifizierung_pk : spezifizierung_pk
-            geschlecht        : geschlecht
-            nominativ_plural  : nominativ_plural
-            genitiv           : genitiv
-            genitiv_plural    : genitiv_plural
-            dativ             : dativ
-            dativ_plural      : dativ_plural
-            akkusativ         : akkusativ
-            akkusativ_plural  : akkusativ_plural
-            hinweis           : hinweis
 
-            praesens singular 1              : praesens singular 1
-            praesens singular 2              : praesens singular 2
-            praesens singular 3              : praesens singular 3
-            praesens plural 1                : praesens plural 1
-            praesens plural 2                : praesens plural 2
-            praesens plural 3                : praesens plural 3
-            praesens konjuktiv singular 1    : praesens konjuktiv singular 1
-            praesens konjuktiv singular 2    : praesens konjuktiv singular 2
-            praesens konjuktiv singular 3    : praesens konjuktiv singular 3
-            praesens konjuktiv plural 1      : praesens konjuktiv plural 1
-            praesens konjuktiv plural 2      : praesens konjuktiv plural 2
-            praesens konjuktiv plural 3      : praesens konjuktiv plural 3
-            imperativ singular 2             : imperativ singular 2
-            imperativ plural 2               : imperativ plural 2
-            praeteritum singular 1           : praeteritum singular 1
-            praeteritum singular 2           : praeteritum singular 2
-            praeteritum singular 3           : praeteritum singular 3
-            praeteritum plural 1             : praeteritum plural 1
-            praeteritum plural 2             : praeteritum plural 2
-            praeteritum plural 3             : praeteritum plural 3
-            praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
-            praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
-            praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
-            praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
-            praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
-            praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
-            partizip 1                       : partizip 1
-            partizip 2                       : partizip 2
-            infinitiv                        : infinitiv
-            perfekt mit                      : perfekt mit
-            perfekt hinweis                  : perfekt hinweis
+              nominativ         : nominativ
+              spezifizierung_pk : spezifizierung_pk
+              geschlecht        : geschlecht
+              nominativ_plural  : nominativ_plural
+              genitiv           : genitiv
+              genitiv_plural    : genitiv_plural
+              dativ             : dativ
+              dativ_plural      : dativ_plural
+              akkusativ         : akkusativ
+              akkusativ_plural  : akkusativ_plural
+              hinweis           : hinweis
+
+              praesens singular 1              : praesens singular 1
+              praesens singular 2              : praesens singular 2
+              praesens singular 3              : praesens singular 3
+              praesens plural 1                : praesens plural 1
+              praesens plural 2                : praesens plural 2
+              praesens plural 3                : praesens plural 3
+              praesens konjuktiv singular 1    : praesens konjuktiv singular 1
+              praesens konjuktiv singular 2    : praesens konjuktiv singular 2
+              praesens konjuktiv singular 3    : praesens konjuktiv singular 3
+              praesens konjuktiv plural 1      : praesens konjuktiv plural 1
+              praesens konjuktiv plural 2      : praesens konjuktiv plural 2
+              praesens konjuktiv plural 3      : praesens konjuktiv plural 3
+              imperativ singular 2             : imperativ singular 2
+              imperativ plural 2               : imperativ plural 2
+              praeteritum singular 1           : praeteritum singular 1
+              praeteritum singular 2           : praeteritum singular 2
+              praeteritum singular 3           : praeteritum singular 3
+              praeteritum plural 1             : praeteritum plural 1
+              praeteritum plural 2             : praeteritum plural 2
+              praeteritum plural 3             : praeteritum plural 3
+              praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
+              praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
+              praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
+              praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
+              praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
+              praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
+              partizip 1                       : partizip 1
+              partizip 2                       : partizip 2
+              infinitiv                        : infinitiv
+              perfekt mit                      : perfekt mit
+              perfekt hinweis                  : perfekt hinweis
+
+            guid       : guid
+            word:en    : fremd
+            hinweis:en : hinweis fremd
 
           personal_fields: [ ]
-      file_mappings:
+      file_mappings: &file_mappings
         - file: build/data/c/word.csv
           derivatives:
+            - file: build/data/c/guid.csv
             - file: build/data/c/substantiv.csv
               note_model: UD Substantiv C
             - file: build/data/c/verb.csv
               note_model: UD Verb C
 
+  - notes_from_csvs:
+      part_id: UD C hungarian
+
+      note_model_mappings:
+        - note_models: *note_models
+          columns_to_fields:
+            <<: *columns_to_fields
+
+            guid:hu : guid
+            word:hu : fremd
+            hinweis:hu : hinweis fremd
+      file_mappings: *file_mappings
+
 - generate_crowd_anki:
-    <<:
-      headers: default header
+    <<: &crowd_anki_common
       media:
         parts: [all_media]
       note_models:
         parts:
           - part_id: UD Substantiv C
           - part_id: UD Verb C
-    folder: build/Ultimate_Deutsch_C
+    headers: default header:c:en
+    folder: build/Ultimate_Deutsch_C_EN
     notes:
-      part_id: Ultimate Deutsch C
+      part_id: UD C english
 
-#- generate_crowd_anki:
-#        <<: &extended_deck
-#            headers: default header
-#            media:
-#                parts: [ all_media ]
-#            note_models:
-#                parts:
-#                    - part_id: Ultimate Geography [Extended]
-#
-#        folder: build/Ultimate Geography [EN] [Extended]
-#        notes:
-#            part_id: english
-#            <<: &override_nm
-#                override:
-#                    note_model: Ultimate Geography [Extended]
+- generate_crowd_anki:
+    <<: *crowd_anki_common
+    headers: default header:c:hu
+    folder: build/Ultimate_Deutsch_C_HU
+    notes:
+      part_id: UD C hungarian

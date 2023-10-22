@@ -1,16 +1,17 @@
 - build_parts:
   - headers_from_crowd_anki:
       part_id: default
-      source: build/Ultimate_Deutsch
+      source: build/Ultimate_Deutsch_C_EN
+
   - notes_from_crowd_anki:
       part_id: standard notes
       sort_order: [word]
-      source: build/Ultimate_Deutsch
+      source: build/Ultimate_Deutsch_C_EN
   - note_models_all_from_crowd_anki:
-      source: build/Ultimate_Deutsch
+      source: build/Ultimate_Deutsch_C_EN
   - media_group_from_crowd_anki:
       part_id: all_anki_media
-      source: build/Ultimate_Deutsch
+      source: build/Ultimate_Deutsch_C_EN
       recursive: true
 
 - save_media_group_to_folder:
@@ -22,65 +23,68 @@
 - generate_csvs:
     notes: standard notes
     file_mappings:
-      - file: build/data/a1/word.csv
+      - file: build/data/c/word.csv
         derivatives:
-          - file: build/data/a1/substantiv.csv
-            note_model: UD Substantiv
-          - file: build/data/a1/verb.csv
-            note_model: UD Verb
+          - file: build/data/c/guid.csv
+          - file: build/data/c/substantiv.csv
+            note_model: UD Substantiv C
+          - file: build/data/c/verb.csv
+            note_model: UD Verb C
     note_model_mappings:
       - note_models:
-          - UD Substantiv
-          - UD Verb
+          - UD Substantiv C
+          - UD Verb C
         columns_to_fields:
           <<:
-            guid       : guid
             tags       : tags
             word       : word
-            word:en    : english
-            hinweis:en : hint
-          nominativ         : nominativ
-          spezifizierung_pk : spezifizierung_pk
-          geschlecht        : geschlecht
-          nominativ_plural  : nominativ_plural
-          genitiv           : genitiv
-          genitiv_plural    : genitiv_plural
-          dativ             : dativ
-          dativ_plural      : dativ_plural
-          akkusativ         : akkusativ
-          akkusativ_plural  : akkusativ_plural
-          hinweis           : hinweis
 
-          praesens singular 1              : praesens singular 1
-          praesens singular 2              : praesens singular 2
-          praesens singular 3              : praesens singular 3
-          praesens plural 1                : praesens plural 1
-          praesens plural 2                : praesens plural 2
-          praesens plural 3                : praesens plural 3
-          praesens konjuktiv singular 1    : praesens konjuktiv singular 1
-          praesens konjuktiv singular 2    : praesens konjuktiv singular 2
-          praesens konjuktiv singular 3    : praesens konjuktiv singular 3
-          praesens konjuktiv plural 1      : praesens konjuktiv plural 1
-          praesens konjuktiv plural 2      : praesens konjuktiv plural 2
-          praesens konjuktiv plural 3      : praesens konjuktiv plural 3
-          imperativ singular 2             : imperativ singular 2
-          imperativ plural 2               : imperativ plural 2
-          praeteritum singular 1           : praeteritum singular 1
-          praeteritum singular 2           : praeteritum singular 2
-          praeteritum singular 3           : praeteritum singular 3
-          praeteritum plural 1             : praeteritum plural 1
-          praeteritum plural 2             : praeteritum plural 2
-          praeteritum plural 3             : praeteritum plural 3
-          praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
-          praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
-          praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
-          praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
-          praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
-          praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
-          partizip 1                       : partizip 1
-          partizip 2                       : partizip 2
-          infinitiv                        : infinitiv
-          perfekt mit                      : perfekt mit
-          perfekt hinweis                  : perfekt hinweis
+            nominativ         : nominativ
+            spezifizierung_pk : spezifizierung_pk
+            geschlecht        : geschlecht
+            nominativ_plural  : nominativ_plural
+            genitiv           : genitiv
+            genitiv_plural    : genitiv_plural
+            dativ             : dativ
+            dativ_plural      : dativ_plural
+            akkusativ         : akkusativ
+            akkusativ_plural  : akkusativ_plural
+            hinweis           : hinweis
+
+            praesens singular 1              : praesens singular 1
+            praesens singular 2              : praesens singular 2
+            praesens singular 3              : praesens singular 3
+            praesens plural 1                : praesens plural 1
+            praesens plural 2                : praesens plural 2
+            praesens plural 3                : praesens plural 3
+            praesens konjuktiv singular 1    : praesens konjuktiv singular 1
+            praesens konjuktiv singular 2    : praesens konjuktiv singular 2
+            praesens konjuktiv singular 3    : praesens konjuktiv singular 3
+            praesens konjuktiv plural 1      : praesens konjuktiv plural 1
+            praesens konjuktiv plural 2      : praesens konjuktiv plural 2
+            praesens konjuktiv plural 3      : praesens konjuktiv plural 3
+            imperativ singular 2             : imperativ singular 2
+            imperativ plural 2               : imperativ plural 2
+            praeteritum singular 1           : praeteritum singular 1
+            praeteritum singular 2           : praeteritum singular 2
+            praeteritum singular 3           : praeteritum singular 3
+            praeteritum plural 1             : praeteritum plural 1
+            praeteritum plural 2             : praeteritum plural 2
+            praeteritum plural 3             : praeteritum plural 3
+            praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
+            praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
+            praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
+            praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
+            praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
+            praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
+            partizip 1                       : partizip 1
+            partizip 2                       : partizip 2
+            infinitiv                        : infinitiv
+            perfekt mit                      : perfekt mit
+            perfekt hinweis                  : perfekt hinweis
+
+          guid       : guid
+          word:en    : english
+          hinweis:en : hint
 
         personal_fields: []

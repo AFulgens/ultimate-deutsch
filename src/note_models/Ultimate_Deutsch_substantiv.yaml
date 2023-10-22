@@ -2,8 +2,8 @@
 css_file: &css_file src/note_models/style.css
 fields: &fields
   - name: word
-  - name: english
-  - name: hint
+  - name: fremd
+  - name: hinweis fremd
   - name: nominativ
   - name: spezifizierung_pk
   - name: geschlecht
