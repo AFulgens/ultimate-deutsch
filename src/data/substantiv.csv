@@ -1,2 +1,5 @@
-word,nominativ,spezifizierung_pk,geschlecht,nominativ plural,genitiv,genitiv plural,dativ,dativ plural,akkusativ,akkusativ plural,hinweis
+word,nominativ,spezifizierung_pk,geschlecht,nominativ_plural,genitiv,genitiv_plural,dativ,dativ_plural,akkusativ,akkusativ_plural,hinweis
 Apfel,Apfel,,maskulin,Äpfel,Apfels,Äpfel,Apfel,Äpfeln,Apfel,Äpfel,
+Abenteuerlust,Abenteuerlust,,feminin,,Abenteuerlust,,Abenteuerlust,,Abenteuerlust,,
+Paar,Paar,,Neutrum,Paare,Paar(e)s,Paare,Paar(e),Paar,Paar,Paare,
+Konsequenz,Konsequenz,,feminin,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,

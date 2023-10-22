@@ -22,11 +22,11 @@
 - generate_csvs:
     notes: standard notes
     file_mappings:
-      - file: src/data/word.csv
+      - file: build/data/a1/word.csv
         derivatives:
-          - file: src/data/substantiv.csv
+          - file: build/data/a1/substantiv.csv
             note_model: UD Substantiv
-          - file: src/data/verb.csv
+          - file: build/data/a1/verb.csv
             note_model: UD Verb
     note_model_mappings:
       - note_models:
@@ -42,13 +42,13 @@
           nominativ         : nominativ
           spezifizierung_pk : spezifizierung_pk
           geschlecht        : geschlecht
-          nominativ plural  : nominativ (plural)
+          nominativ_plural  : nominativ_plural
           genitiv           : genitiv
-          genitiv plural    : genitiv (plural)
+          genitiv_plural    : genitiv_plural
           dativ             : dativ
-          dativ plural      : dativ (plural)
+          dativ_plural      : dativ_plural
           akkusativ         : akkusativ
-          akkusativ plural  : akkusativ (plural)
+          akkusativ_plural  : akkusativ_plural
           hinweis           : hinweis
 
           praesens singular 1              : praesens singular 1

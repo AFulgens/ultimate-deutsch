@@ -1,16 +1,16 @@
 - generate_guids_in_csvs:
     source:
-      - src/data/word.csv
+      - build/data/c/word.csv
     columns:
       - guid
 
 - build_parts:
   - note_model_from_yaml_part:
-      part_id: UD Substantiv
-      file: src/note_models/Ultimate_Deutsch_substantiv.yaml
+      part_id: UD Substantiv C
+      file: src/note_models/c/Ultimate_Deutsch_substantiv.yaml
   - note_model_from_yaml_part:
-      part_id: UD Verb
-      file: src/note_models/Ultimate_Deutsch_verb.yaml
+      part_id: UD Verb C
+      file: src/note_models/c/Ultimate_Deutsch_verb.yaml
 
   - headers_from_yaml_part:
       - part_id: default header
@@ -24,12 +24,12 @@
       recursive: true
 
   - notes_from_csvs:
-      part_id: Ultimate Deutsch
+      part_id: Ultimate Deutsch C
 
       note_model_mappings:
         - note_models:
-            - UD Substantiv
-            - UD Verb
+            - UD Substantiv C
+            - UD Verb C
           columns_to_fields:
             <<:
               guid       : guid
@@ -40,13 +40,13 @@
             nominativ         : nominativ
             spezifizierung_pk : spezifizierung_pk
             geschlecht        : geschlecht
-            nominativ plural  : nominativ (plural)
+            nominativ_plural  : nominativ_plural
             genitiv           : genitiv
-            genitiv plural    : genitiv (plural)
+            genitiv_plural    : genitiv_plural
             dativ             : dativ
-            dativ plural      : dativ (plural)
+            dativ_plural      : dativ_plural
             akkusativ         : akkusativ
-            akkusativ plural  : akkusativ (plural)
+            akkusativ_plural  : akkusativ_plural
             hinweis           : hinweis
 
             praesens singular 1              : praesens singular 1
@@ -83,12 +83,12 @@
 
           personal_fields: [ ]
       file_mappings:
-        - file: src/data/word.csv
+        - file: build/data/c/word.csv
           derivatives:
-            - file: src/data/substantiv.csv
-              note_model: UD Substantiv
-            - file: src/data/verb.csv
-              note_model: UD Verb
+            - file: build/data/c/substantiv.csv
+              note_model: UD Substantiv C
+            - file: build/data/c/verb.csv
+              note_model: UD Verb C
 
 - generate_crowd_anki:
     <<:
@@ -97,11 +97,11 @@
         parts: [all_media]
       note_models:
         parts:
-          - part_id: UD Substantiv
-          - part_id: UD Verb
+          - part_id: UD Substantiv C
+          - part_id: UD Verb C
     folder: build/Ultimate_Deutsch
     notes:
-      part_id: Ultimate Deutsch
+      part_id: Ultimate Deutsch C
 
 #- generate_crowd_anki:
 #        <<: &extended_deck
