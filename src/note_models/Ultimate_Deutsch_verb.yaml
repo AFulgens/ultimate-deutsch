@@ -1,7 +1,5 @@
-name: UD Verb
-id: 0a4a66dc-6d14-4058-a165-2722b2a3bb04
-css_file: src/note_models/style.css
-fields:
+css_file: &css_file src/note_models/style.css
+fields: &fields
   - name: word
   - name: english
   - name: hint
@@ -36,6 +34,22 @@ fields:
   - name: infinitiv
   - name: perfekt mit
   - name: perfekt hinweis
+praesens_singular: &praesens_singular
+  name: Praesens Singular
+  html_file: src/note_models/verb/praesens_singular_1.html
+---
+name: UD Verb (A1)
+id: 36a681ca-3099-461f-913c-01c60f30fc81
+css_file: *css_file
+fields: *fields
+file_name: a1/Ultimate_Deutsch_verb.yaml
 templates:
-  - name: Praesens Singular
-    html_file: src/note_models/verb/praesens_singular_1.html
+  - *praesens_singular
+---
+name: UD Verb (C)
+id: 015e0d30-2e5c-47d5-a156-c6ed836a153e
+css_file: *css_file
+fields: *fields
+file_name: c/Ultimate_Deutsch_verb.yaml
+templates:
+  - *praesens_singular

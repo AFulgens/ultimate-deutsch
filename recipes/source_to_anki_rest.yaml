@@ -6,17 +6,17 @@
 
 - build_parts:
   - note_model_from_yaml_part:
-      part_id: UD Substantiv
-      file: src/note_models/Ultimate_Deutsch_substantiv.yaml
+      part_id: UD Substantiv A1
+      file: build/note_models/a1/Ultimate_Deutsch_substantiv.yaml
   - note_model_from_yaml_part:
-      part_id: UD Verb
-      file: src/note_models/Ultimate_Deutsch_verb.yaml
+      part_id: UD Verb A1
+      file: build/note_models/a1/Ultimate_Deutsch_verb.yaml
 
   - headers_from_yaml_part:
       - part_id: default header
-        file: src/headers/default.yaml
+        file: build/headers/a1.yaml
         override:
-          deck_description_html_file: src/headers/desc.html
+          deck_description_html_file: build/headers/desc.html
 
   - media_group_from_folder:
     - part_id: all_media
@@ -24,12 +24,12 @@
       recursive: true
 
   - notes_from_csvs:
-      part_id: Ultimate Deutsch
+      part_id: Ultimate Deutsch A1
 
       note_model_mappings:
         - note_models:
-            - UD Substantiv
-            - UD Verb
+            - UD Substantiv A1
+            - UD Verb A1
           columns_to_fields:
             <<:
               guid       : guid
@@ -86,9 +86,9 @@
         - file: build/data/a1/word.csv
           derivatives:
             - file: build/data/a1/substantiv.csv
-              note_model: UD Substantiv
+              note_model: UD Substantiv A1
             - file: build/data/a1/verb.csv
-              note_model: UD Verb
+              note_model: UD Verb A1
 
 - generate_crowd_anki:
     <<:
@@ -97,11 +97,11 @@
         parts: [all_media]
       note_models:
         parts:
-          - part_id: UD Substantiv
-          - part_id: UD Verb
-    folder: build/Ultimate_Deutsch
+          - part_id: UD Substantiv A1
+          - part_id: UD Verb A1
+    folder: build/Ultimate_Deutsch_A1
     notes:
-      part_id: Ultimate Deutsch
+      part_id: Ultimate Deutsch A1
 
 #- generate_crowd_anki:
 #        <<: &extended_deck

@@ -7,16 +7,16 @@
 - build_parts:
   - note_model_from_yaml_part:
       part_id: UD Substantiv C
-      file: src/note_models/c/Ultimate_Deutsch_substantiv.yaml
+      file: build/note_models/c/Ultimate_Deutsch_substantiv.yaml
   - note_model_from_yaml_part:
       part_id: UD Verb C
-      file: src/note_models/c/Ultimate_Deutsch_verb.yaml
+      file: build/note_models/c/Ultimate_Deutsch_verb.yaml
 
   - headers_from_yaml_part:
       - part_id: default header
-        file: src/headers/default.yaml
+        file: build/headers/c.yaml
         override:
-          deck_description_html_file: src/headers/desc.html
+          deck_description_html_file: build/headers/desc.html
 
   - media_group_from_folder:
     - part_id: all_media
@@ -99,7 +99,7 @@
         parts:
           - part_id: UD Substantiv C
           - part_id: UD Verb C
-    folder: build/Ultimate_Deutsch
+    folder: build/Ultimate_Deutsch_C
     notes:
       part_id: Ultimate Deutsch C
 

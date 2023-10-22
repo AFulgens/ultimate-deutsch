@@ -2,7 +2,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 CSV_FILES := src/data/substantiv.csv src/data/verb.csv
 
-LEVELS := C B2 B1 A2 A1
+LEVELS := c b2 b1 a2 a1
 
 .SECONDEXPANSION:
 
@@ -11,39 +11,44 @@ setup: Pipfile
 
 clean:
 	@echo "rm build"
-	@-rm -r ./build
-	@@$(MAKE) --no-print-directory -f $(THIS_FILE) structure 1>/dev/null
+	@rm -r ./build ||:
 
-source_to_anki: clean structure chevron C.process.sources C.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
-	@echo "source_to_anki"
+source_to_anki: clean structure yq chevron c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
+	@echo "source_to_anki finished"
 
 anki_to_source:
 	@echo "anki_to_source"
 	@pipenv run brainbrew run recipes/anki_to_source.yaml
 
-structure:
+structure: data.dirs
 	@echo "mkdir build/*"
-	@mkdir -p ./build/data/c
-	@mkdir -p ./build/data/b2
-	@mkdir -p ./build/data/b1
-	@mkdir -p ./build/data/a2
-	@mkdir -p ./build/data/a1
+	@mkdir -p ./build/headers
 	@mkdir -p ./build/note_models/substantiv
 
-chevron:
+data.dirs: $(LEVELS:=.data.dir)
+
+yq:
+	@echo "yq"
+	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_substantiv.yaml --no-doc -s '"build/note_models/" + .file_name'
+	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_verb.yaml --no-doc -s '"build/note_models/" + .file_name'
+	@for y in $$(find build/note_models -type f -name "*.yaml"); do yq_windows_amd64 '. |  pick(["name", "id", "css_file", "fields", "templates"])' $$y > $$y.tmp; mv $$y.tmp $$y; done
+
+chevron: chevron.headers
 	@echo "chevron"
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/singular_nominativ.mustache > ./build/note_models/substantiv/singular_nominativ.html
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/plural_nominativ.mustache > ./build/note_models/substantiv/plural_nominativ.html
 
+chevron.headers: $(LEVELS:=.chevron.header)
+
 guid.backmerge:
 	@echo "guid backmerge"
-	@$(shell pipenv run python recipes/guid_backmerge.py)
+	@pipenv run python recipes/guid_backmerge.py
 
-C.process.sources: C.data
+c.process.sources: c.data
 
 rest.process.sources: $(LEVELS:=.data)
 
-C.brainbrew.source_to_anki:
+c.brainbrew.source_to_anki:
 	@echo "brainbrew source_to_anki (C)"
 	@pipenv run brainbrew run recipes/source_to_anki_c.yaml
 
@@ -56,39 +61,58 @@ rest.brainbrew.source_to_anki:
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.base
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.files
 
-C.data.base: src/data/word.csv
-	@echo "copy C - word"
+c.data.base: src/data/word.csv
+	@echo "copy c - word"
 	@cp ./src/data/word.csv ./build/data/c/word.csv
+	@cp ./src/headers/desc.html ./build/headers/desc.html
 
-B2.data.base: src/data/word.csv
-	@echo "copy B2 - word"
+b2.data.base: src/data/word.csv
+	@echo "copy b2 - word"
 	@head -n1 ./src/data/word.csv > ./build/data/b2/word.csv
-	@grep -i "::B2" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep -i "::B1" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep -i "::A2" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep -i "::A1" ./src/data/word.csv >> ./build/data/b2/word.csv
+	@grep "::B2" ./src/data/word.csv >> ./build/data/b2/word.csv
+	@grep "::B1" ./src/data/word.csv >> ./build/data/b2/word.csv
+	@grep "::A2" ./src/data/word.csv >> ./build/data/b2/word.csv
+	@grep "::A1" ./src/data/word.csv >> ./build/data/b2/word.csv
 
-B1.data.base: src/data/word.csv
-	@echo "copy B1 - word"
+b1.data.base: src/data/word.csv
+	@echo "copy b1 - word"
 	@head -n1 ./src/data/word.csv > ./build/data/b1/word.csv
-	@grep -i "::B1" ./src/data/word.csv >> ./build/data/b1/word.csv
-	@grep -i "::A2" ./src/data/word.csv >> ./build/data/b1/word.csv
-	@grep -i "::A1" ./src/data/word.csv >> ./build/data/b1/word.csv
+	@grep "::B1" ./src/data/word.csv >> ./build/data/b1/word.csv
+	@grep "::A2" ./src/data/word.csv >> ./build/data/b1/word.csv
+	@grep "::A1" ./src/data/word.csv >> ./build/data/b1/word.csv
 
-A2.data.base: src/data/word.csv
-	@echo "copy A2 - word"
+a2.data.base: src/data/word.csv
+	@echo "copy a2 - word"
 	@head -n1 ./src/data/word.csv > ./build/data/a2/word.csv
-	@grep -i "::A2" ./src/data/word.csv >> ./build/data/a2/word.csv
-	@grep -i "::A1" ./src/data/word.csv >> ./build/data/a2/word.csv
+	@grep "::A2" ./src/data/word.csv >> ./build/data/a2/word.csv
+	@grep "::A1" ./src/data/word.csv >> ./build/data/a2/word.csv
 
-A1.data.base: src/data/word.csv
-	@echo "copy A1 - word"
+a1.data.base: src/data/word.csv
+	@echo "copy a1 - word"
 	@head -n1 ./src/data/word.csv > ./build/data/a1/word.csv
-	@grep -i "::A1" ./src/data/word.csv >> ./build/data/a1/word.csv
+	@grep "::A1" ./src/data/word.csv >> ./build/data/a1/word.csv
+
+define chevron_header
+$$(level).chevron.header:
+	@echo "chevron $(level)"
+	@pipenv run chevron -d src/headers/$(level).json src/headers/header.mustache  > ./build/headers/$(level).yaml
+endef
+
+$(foreach level, $(LEVELS), $(eval $(chevron_header)))
+
+define data_dir
+$$(level).data.dir:
+	@mkdir -p ./build/data/$(level)
+	@mkdir -p ./build/note_models/$(level)
+endef
+
+$(foreach level, $(LEVELS), $(eval $(data_dir)))
 
 define data_files
 $$(level).data.files: $(CSV_FILES:.csv=.$$(level).data.merge)
 endef
+
+$(foreach level, $(LEVELS), $(eval $(data_files)))
 
 define data_merge
 %.$$(level).data.merge: %.csv
@@ -100,8 +124,6 @@ define data_merge
 endef
 
 $(foreach level, $(LEVELS), $(eval $(data_merge)))
-
-$(foreach level, $(LEVELS), $(eval $(data_files)))
 
 #	@echo "@" "$$@"
 #	@echo "%" "$$%"

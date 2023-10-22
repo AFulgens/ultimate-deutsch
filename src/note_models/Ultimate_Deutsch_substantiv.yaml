@@ -1,7 +1,6 @@
-name: UD Substantiv
-id: 7c59b4ae-daac-4b2f-9db2-411b2348eec0
-css_file: src/note_models/style.css
-fields:
+---
+css_file: &css_file src/note_models/style.css
+fields: &fields
   - name: word
   - name: english
   - name: hint
@@ -16,8 +15,27 @@ fields:
   - name: akkusativ
   - name: akkusativ_plural
   - name: hinweis
+singular_nominativ: &singular_nominativ
+  name: Singular Nominativ
+  html_file: build/note_models/substantiv/singular_nominativ.html
+plural_nominativ: &plural_nominativ
+  name: Plural Nominativ
+  html_file: build/note_models/substantiv/plural_nominativ.html
+---
+name: UD Substantiv (A1)
+id: ad0ef57b-05d9-4692-a309-984767e89b28
+css_file: *css_file
+fields: *fields
+file_name: a1/Ultimate_Deutsch_substantiv.yaml
 templates:
-  - name: Singular Nominativ
-    html_file: build/note_models/substantiv/singular_nominativ.html
-  - name: Plural Nominativ
-    html_file: build/note_models/substantiv/plural_nominativ.html
+  - *singular_nominativ
+  - *plural_nominativ
+---
+name: UD Substantiv (C)
+id: f7c4e1b0-1447-439b-9100-abfff8fcfced
+css_file: *css_file
+fields: *fields
+file_name: c/Ultimate_Deutsch_substantiv.yaml
+templates:
+  - *singular_nominativ
+  - *plural_nominativ
