@@ -2,13 +2,7 @@
   'main':'
 <div class="type">Hauptwort</div>
 
-<div class="value">{{ nominativ }}</div>
-
-{{#spezifizierung_pk}}
-
-    <div class="info">({{ spezifizierung_pk }})</div>
-
-{{/spezifizierung_pk}}
+<div class="value">{{nominativ}}</div>
 
 
 <table>
@@ -29,7 +23,7 @@
 
         <td>
 
-            <div id="singular-nominativ">##ART## {{ nominativ }}</div>
+            <div id="singular-nominativ">##ART## {{nominativ}}</div>
 
         </td>
 
@@ -39,7 +33,7 @@
 
                 {{#nominativ_plural}}
 
-                    ##ART## {{ nominativ_plural }}
+                    ##ART## {{nominativ_plural}}
 
                 {{/nominativ_plural}}
 
@@ -61,7 +55,7 @@
 
         <td>
 
-            <div id="singular-genitiv">##ART## {{ genitiv }}</div>
+            <div id="singular-genitiv">##ART## {{genitiv}}</div>
 
         </td>
 
@@ -71,7 +65,7 @@
 
                 {{#genitiv_plural}}
 
-                    ##ART## {{ genitiv_plural }}
+                    ##ART## {{genitiv_plural}}
 
                 {{/genitiv_plural}}
 
@@ -93,7 +87,7 @@
 
         <td>
 
-            <div id="singular-dativ">##ART## {{ dativ }}</div>
+            <div id="singular-dativ">##ART## {{dativ}}</div>
 
         </td>
 
@@ -103,7 +97,7 @@
 
                 {{#dativ_plural}}
 
-                    ##ART## {{ dativ_plural }}
+                    ##ART## {{dativ_plural}}
 
                 {{/dativ_plural}}
 
@@ -125,7 +119,7 @@
 
         <td>
 
-            <div id="singular-akkusativ">##ART## {{ akkusativ }}</div>
+            <div id="singular-akkusativ">##ART## {{akkusativ}}</div>
 
         </td>
 
@@ -135,7 +129,7 @@
 
                 {{#akkusativ_plural}}
 
-                    ##ART## {{ akkusativ_plural }}
+                    ##ART## {{akkusativ_plural}}
 
                 {{/akkusativ_plural}}
 
@@ -159,23 +153,21 @@
 
 {{#hinweis}}
 
-    <div class="type">Hinweis:</div> {{ hinweis }}
+    <div class="type">Hinweis:</div> {{hinweis}}
 
     <br/><br/>
 
 {{/hinweis}}
 
-<div class="type">Fremdsprache:</div> {{ fremd }}
+<div class="type">Wort in Fremdsprache:</div> {{#fremd}}{{fremd}}{{/fremd}}{{^fremd}}&mdash;{{/fremd}}
 
-{{#hint}}
+{{#fremd_hinweis}}
 
-    <div class="info">Hinweis für Fremdsprache:</div> {{ hinweis fremd }}
+    <div class="info">Hinweis für Fremdsprache:</div> {{fremd_hinweis}}
 
-{{/hint}}',
+{{/fremd_hinweis}}',
   'script':'<script>
-    var isFront = true
-
-    var articles = new Map()
+    let articles = new Map()
 
     articles.set("plural-nominativ", "die")
 
@@ -267,7 +259,7 @@
 
     articles.forEach((value, key) => {
 
-        var curr = document.getElementById(key)
+        let curr = document.getElementById(key)
 
         if (key !== type) {
 

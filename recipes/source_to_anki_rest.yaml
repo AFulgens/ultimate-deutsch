@@ -36,56 +36,61 @@
             - UD Verb A1
           columns_to_fields:
             <<: &columns_to_fields
-              tags       : tags
-              word       : word
+              # word.csv, common part
+              tags : tags
+              wort : wort
 
-              nominativ         : nominativ
-              spezifizierung_pk : spezifizierung_pk
-              geschlecht        : geschlecht
-              nominativ_plural  : nominativ_plural
-              genitiv           : genitiv
-              genitiv_plural    : genitiv_plural
-              dativ             : dativ
-              dativ_plural      : dativ_plural
-              akkusativ         : akkusativ
-              akkusativ_plural  : akkusativ_plural
-              hinweis           : hinweis
+              # substantiv.csv
+              geschlecht       : geschlecht
+              nominativ        : nominativ
+              nominativ_plural : nominativ_plural
+              genitiv          : genitiv
+              genitiv_plural   : genitiv_plural
+              dativ            : dativ
+              dativ_plural     : dativ_plural
+              akkusativ        : akkusativ
+              akkusativ_plural : akkusativ_plural
+              hinweis          : hinweis
 
-              praesens singular 1              : praesens singular 1
-              praesens singular 2              : praesens singular 2
-              praesens singular 3              : praesens singular 3
-              praesens plural 1                : praesens plural 1
-              praesens plural 2                : praesens plural 2
-              praesens plural 3                : praesens plural 3
-              praesens konjuktiv singular 1    : praesens konjuktiv singular 1
-              praesens konjuktiv singular 2    : praesens konjuktiv singular 2
-              praesens konjuktiv singular 3    : praesens konjuktiv singular 3
-              praesens konjuktiv plural 1      : praesens konjuktiv plural 1
-              praesens konjuktiv plural 2      : praesens konjuktiv plural 2
-              praesens konjuktiv plural 3      : praesens konjuktiv plural 3
-              imperativ singular 2             : imperativ singular 2
-              imperativ plural 2               : imperativ plural 2
-              praeteritum singular 1           : praeteritum singular 1
-              praeteritum singular 2           : praeteritum singular 2
-              praeteritum singular 3           : praeteritum singular 3
-              praeteritum plural 1             : praeteritum plural 1
-              praeteritum plural 2             : praeteritum plural 2
-              praeteritum plural 3             : praeteritum plural 3
-              praeteritum konjuktiv singular 1 : praeteritum konjuktiv singular 1
-              praeteritum konjuktiv singular 2 : praeteritum konjuktiv singular 2
-              praeteritum konjuktiv singular 3 : praeteritum konjuktiv singular 3
-              praeteritum konjuktiv plural 1   : praeteritum konjuktiv plural 1
-              praeteritum konjuktiv plural 2   : praeteritum konjuktiv plural 2
-              praeteritum konjuktiv plural 3   : praeteritum konjuktiv plural 3
-              partizip 1                       : partizip 1
-              partizip 2                       : partizip 2
-              infinitiv                        : infinitiv
-              perfekt mit                      : perfekt mit
-              perfekt hinweis                  : perfekt hinweis
+              # verb.csv
+              praesens_singular_1 : praesens_singular_1
+              praesens_singular_2 : praesens_singular_2
+              praesens_singular_3 : praesens_singular_3
+              praesens_plural_1   : praesens_plural_1
+              praesens_plural_2   : praesens_plural_2
+              praesens_plural_3   : praesens_plural_3
+              praeteritum_singular_1 : praeteritum_singular_1
+              praeteritum_singular_2 : praeteritum_singular_2
+              praeteritum_singular_3 : praeteritum_singular_3
+              praeteritum_plural_1   : praeteritum_plural_1
+              praeteritum_plural_2   : praeteritum_plural_2
+              praeteritum_plural_3   : praeteritum_plural_3
+              praesens_konjunktiv_i_singular_1 : praesens_konjunktiv_i_singular_1
+              praesens_konjunktiv_i_singular_2 : praesens_konjunktiv_i_singular_2
+              praesens_konjunktiv_i_singular_3 : praesens_konjunktiv_i_singular_3
+              praesens_konjunktiv_i_plural_1   : praesens_konjunktiv_i_plural_1
+              praesens_konjunktiv_i_plural_2   : praesens_konjunktiv_i_plural_2
+              praesens_konjunktiv_i_plural_3   : praesens_konjunktiv_i_plural_3
+              praeteritum_konjunktiv_ii_singular_1 : praeteritum_konjunktiv_ii_singular_1
+              praeteritum_konjunktiv_ii_singular_2 : praeteritum_konjunktiv_ii_singular_2
+              praeteritum_konjunktiv_ii_singular_3 : praeteritum_konjunktiv_ii_singular_3
+              praeteritum_konjunktiv_ii_plural_1   : praeteritum_konjunktiv_ii_plural_1
+              praeteritum_konjunktiv_ii_plural_2   : praeteritum_konjunktiv_ii_plural_2
+              praeteritum_konjunktiv_ii_plural_3   : praeteritum_konjunktiv_ii_plural_3
+              imperativ_singular_2 : imperativ_singular_2
+              imperativ_plural_2   : imperativ_plural_2
+              partizip_i  : partizip_i
+              partizip_ii : partizip_ii
+              infinitiv : infinitiv
+              perfekt_mit     : perfekt_mit
+              perfekt_hinweis : perfekt_hinweis
 
+            # guid.csv, language specific part
             guid       : guid
-            word:en    : fremd
-            hinweis:en : hinweis fremd
+            # word.csv, language specific part
+            fremd:en         : fremd
+            fremd_hinweis:en : fremd_hinweis
+
 
           personal_fields: [ ]
       file_mappings: &file_mappings
@@ -104,9 +109,11 @@
         - note_models: *note_models
           columns_to_fields:
             <<: *columns_to_fields
-            guid:hu : guid
-            word:hu : fremd
-            hinweis:hu : hinweis fremd
+            # guid.csv, language specific part
+            guid:hu    : guid
+            # word.csv, language specific part
+            fremd:hu         : fremd
+            fremd_hinweis:hu : fremd_hinweis
       file_mappings: *file_mappings
 
 

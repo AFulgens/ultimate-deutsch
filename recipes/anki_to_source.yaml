@@ -37,7 +37,7 @@
         columns_to_fields:
           <<:
             tags       : tags
-            word       : word
+            wort       : wort
 
             nominativ         : nominativ
             spezifizierung_pk : spezifizierung_pk
@@ -84,7 +84,7 @@
             perfekt hinweis                  : perfekt hinweis
 
           guid       : guid
-          word:en    : english
+          wort:en    : english
           hinweis:en : hint
 
         personal_fields: []

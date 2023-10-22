@@ -2,9 +2,8 @@
 
 To Dos:
 
+- anki_to_source and backmerge into CSVs, sort&sync CSVs
 - fix verb HTML generation
-- make naming consistent (_, -, ␣, camelCase, PascalCase, etc.)
-- anki_to_source and backmerge into CSVs
 - `src/headers/desc.html`
   - Multi-lingual?
 - Makefile step naming + logging

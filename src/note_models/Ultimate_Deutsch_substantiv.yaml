@@ -1,12 +1,11 @@
 ---
 css_file: &css_file src/note_models/style.css
 fields: &fields
-  - name: word
+  - name: wort
   - name: fremd
-  - name: hinweis fremd
-  - name: nominativ
-  - name: spezifizierung_pk
+  - name: fremd_hinweis
   - name: geschlecht
+  - name: nominativ
   - name: nominativ_plural
   - name: genitiv
   - name: genitiv_plural

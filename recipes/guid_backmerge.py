@@ -18,11 +18,11 @@ def sort_by_caseless_columns(df, columns, ascending=True):
 
 
 generated = pd.read_csv("build/data/c/guid.csv")
-generated.set_index("word")
+generated.set_index("wort")
 
 base = pd.read_csv("src/data/guid.csv")
-base.set_index("word")
+base.set_index("wort")
 
-backmerged = pd.concat((base, generated)).groupby("word").first().reset_index()
-backmerged = sort_by_caseless_columns(backmerged, ["word"])
+backmerged = pd.concat((base, generated)).groupby("wort").first().reset_index()
+backmerged = sort_by_caseless_columns(backmerged, ["wort"])
 backmerged.to_csv("src/data/guid.csv", header=True, index=False)
