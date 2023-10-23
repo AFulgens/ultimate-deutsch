@@ -67,36 +67,36 @@ rest.brainbrew.source_to_anki:
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.base
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.files
 
-c.data.base: src/data/word.csv
-	@echo "copy c - word"
-	@cp ./src/data/word.csv ./build/data/c/word.csv
+c.data.base: src/data/wort.csv
+	@echo "copy c - wort"
+	@cp ./src/data/wort.csv ./build/data/c/wort.csv
 	@cp ./src/headers/desc.html ./build/headers/desc.html
 
-b2.data.base: src/data/word.csv
-	@echo "copy b2 - word"
-	@head -n1 ./src/data/word.csv > ./build/data/b2/word.csv
-	@grep "::B2" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep "::B1" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep "::A2" ./src/data/word.csv >> ./build/data/b2/word.csv
-	@grep "::A1" ./src/data/word.csv >> ./build/data/b2/word.csv
+b2.data.base: src/data/wort.csv
+	@echo "copy b2 - wort"
+	@head -n1 ./src/data/wort.csv > ./build/data/b2/wort.csv
+	@grep "::B2" ./src/data/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::B1" ./src/data/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::A2" ./src/data/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::A1" ./src/data/wort.csv >> ./build/data/b2/wort.csv
 
-b1.data.base: src/data/word.csv
-	@echo "copy b1 - word"
-	@head -n1 ./src/data/word.csv > ./build/data/b1/word.csv
-	@grep "::B1" ./src/data/word.csv >> ./build/data/b1/word.csv
-	@grep "::A2" ./src/data/word.csv >> ./build/data/b1/word.csv
-	@grep "::A1" ./src/data/word.csv >> ./build/data/b1/word.csv
+b1.data.base: src/data/wort.csv
+	@echo "copy b1 - wort"
+	@head -n1 ./src/data/wort.csv > ./build/data/b1/wort.csv
+	@grep "::B1" ./src/data/wort.csv >> ./build/data/b1/wort.csv
+	@grep "::A2" ./src/data/wort.csv >> ./build/data/b1/wort.csv
+	@grep "::A1" ./src/data/wort.csv >> ./build/data/b1/wort.csv
 
-a2.data.base: src/data/word.csv
-	@echo "copy a2 - word"
-	@head -n1 ./src/data/word.csv > ./build/data/a2/word.csv
-	@grep "::A2" ./src/data/word.csv >> ./build/data/a2/word.csv
-	@grep "::A1" ./src/data/word.csv >> ./build/data/a2/word.csv
+a2.data.base: src/data/wort.csv
+	@echo "copy a2 - wort"
+	@head -n1 ./src/data/wort.csv > ./build/data/a2/wort.csv
+	@grep "::A2" ./src/data/wort.csv >> ./build/data/a2/wort.csv
+	@grep "::A1" ./src/data/wort.csv >> ./build/data/a2/wort.csv
 
-a1.data.base: src/data/word.csv
-	@echo "copy a1 - word"
-	@head -n1 ./src/data/word.csv > ./build/data/a1/word.csv
-	@grep "::A1" ./src/data/word.csv >> ./build/data/a1/word.csv
+a1.data.base: src/data/wort.csv
+	@echo "copy a1 - wort"
+	@head -n1 ./src/data/wort.csv > ./build/data/a1/wort.csv
+	@grep "::A1" ./src/data/wort.csv >> ./build/data/a1/wort.csv
 
 define data_dir
 $$(level).data.dir:
@@ -116,7 +116,7 @@ define data_merge
 %.$$(level).data.merge: %.csv
 	@echo "copy $(level) - $$(shell echo -n $$* | rev | cut -d'/' -f1 | rev)"
 	@grep -Ef \
-		<(cut ./build/data/$(level)/word.csv -d"," -f1 | sed -e 's/^/\^/' | sed -e 's/$$$$/,/') \
+		<(cut ./build/data/$(level)/wort.csv -d"," -f1 | sed -e 's/^/\^/' | sed -e 's/$$$$/,/') \
 		$$<  \
 		> ./build/data/$(level)/$$(shell echo -n $$* | rev | cut -d'/' -f1 | rev).csv
 endef

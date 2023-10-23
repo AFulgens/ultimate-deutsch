@@ -41,7 +41,7 @@
             - UD Verb C
           columns_to_fields:
             <<: &columns_to_fields
-              # word.csv, common part
+              # wort.csv, common part
               tags : tags
               wort : wort
 
@@ -92,13 +92,13 @@
 
             # guid.csv, language specific part
             guid       : guid
-            # word.csv, language specific part
+            # wort.csv, language specific part
             fremd:en         : fremd
             fremd_hinweis:en : fremd_hinweis
 
           personal_fields: [ ]
       file_mappings: &file_mappings
-        - file: build/data/c/word.csv
+        - file: build/data/c/wort.csv
           derivatives:
             - file: build/data/c/guid.csv
             - file: build/data/c/substantiv.csv
@@ -115,7 +115,7 @@
             <<: *columns_to_fields
             # guid.csv, language specific part
             guid:hu    : guid
-            # word.csv, language specific part
+            # wort.csv, language specific part
             fremd:hu         : fremd
             fremd_hinweis:hu : fremd_hinweis
       file_mappings: *file_mappings

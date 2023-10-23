@@ -5,7 +5,7 @@
 
   - notes_from_crowd_anki:
       part_id: standard notes
-      sort_order: [word]
+      sort_order: [wort]
       source: build/Ultimate_Deutsch_C_EN
   - note_models_all_from_crowd_anki:
       source: build/Ultimate_Deutsch_C_EN
@@ -23,7 +23,7 @@
 - generate_csvs:
     notes: standard notes
     file_mappings:
-      - file: build/data/c/word.csv
+      - file: build/data/c/wort.csv
         derivatives:
           - file: build/data/c/guid.csv
           - file: build/data/c/substantiv.csv
