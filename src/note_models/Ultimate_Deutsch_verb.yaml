@@ -35,7 +35,7 @@ fields: &fields
   - name: perfekt_mit
   - name: perfekt_hinweis
 praesens_singular: &praesens_singular_1
-  name: Praesens Singular 1
+  name: Präsens Singular 1
   html_file: src/note_models/verb/praesens_singular_1.html
 ---
 name: UD Verb (A1)

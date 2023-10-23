@@ -16,9 +16,11 @@ clean:
 
 fix_encodings:
 	@echo "fixing known encoding issues"
-	@find ./build -type f | xargs sed -i 's/\xFC/ü/g'
+	@find ./build -type f | xargs sed -i 's_\xC3\x83\xC2\xA4_ä_g'
+	@find ./build -type f | xargs sed -i 's_\xFC_ü_g'
 
-source_to_anki: clean structure yq chevron fix_encodings c.process.sources fix_encodings c.brainbrew.source_to_anki fix_encodings guid.backmerge rest.process.sources fix_encodings rest.brainbrew.source_to_anki fix_encodings
+
+source_to_anki: clean structure yq chevron c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki fix_encodings
 	@echo "source_to_anki finished"
 
 anki_to_source:
