@@ -3,11 +3,6 @@
 To Dos:
 
 - badges
-- Makefile step naming + logging
-- CONTRIBUTING.md
-- README.md
-- sources.csv
-  - Add PDF sources?
 - fix verb HTML generation
 - fill description
 

@@ -33,7 +33,7 @@ For more information, please refer to <http://unlicense.org>
 
 ## Media
 
-The sources and licenses of the media files in the `src/media` folder are listed in `sources.csv`.
+The sources and licenses of the media files in the `src/media` folder are listed in `sources/media.csv`.
 The following licenses are referenced in the _License_ column:
 
 - [CC BY-SA 1.0](https://creativecommons.org/licenses/by-sa/1.0/)
@@ -44,8 +44,11 @@ The following licenses are referenced in the _License_ column:
 - [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 - [PD](https://en.wikipedia.org/wiki/Public_domain) (public domain)
 
-`sources.csv` references only the licenses of the files themselves.
+`media.csv` references only the licenses of the files themselves.
 Some media may come with additional copyright restrictions.
 
 All media have been optimised, resized and/or converted to reduce file size.
 Any modifications are listed in the _Modifications_ column.
+
+## Sources
+
