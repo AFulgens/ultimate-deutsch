@@ -20,12 +20,16 @@ fix_encodings:
 	@find ./build -type f | xargs sed -i 's_\xFC_ü_g'
 
 
-source_to_anki: clean structure yq chevron c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki fix_encodings
+source_to_anki: clean structure yq chevron merge_and_sort c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
 	@echo "source_to_anki finished"
 
 anki_to_source:
 	@echo "anki_to_source"
 	@pipenv run brainbrew run recipes/anki_to_source.yaml
+	@cp ./build/data/c/guid.csv ./src/data/guid.csv
+	@cp ./build/data/c/substantiv.csv ./src/data/substantiv.csv
+	@cp ./build/data/c/verb.csv ./src/data/verb.csv
+	@cp ./build/data/c/wort.csv ./src/data/wort.csv
 
 structure: data.dirs
 	@echo "mkdir build/*"
@@ -40,13 +44,17 @@ yq:
 	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_verb.yaml --no-doc -s '"build/note_models/" + .file_name'
 	@for y in $$(find build/note_models -type f -name "*.yaml"); do yq_windows_amd64 '. |  pick(["name", "id", "css_file", "fields", "templates"])' $$y > $$y.tmp; mv $$y.tmp $$y; done
 	@rm ./.yml ||:
+	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 
 chevron:
 	@echo "chevron"
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/singular_nominativ.mustache > ./build/note_models/substantiv/singular_nominativ.html
-	@sed -i 's/\xFC/ü/g' ./build/note_models/substantiv/singular_nominativ.html
 	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/plural_nominativ.mustache > ./build/note_models/substantiv/plural_nominativ.html
-	@sed -i 's/\xFC/ü/g' ./build/note_models/substantiv/plural_nominativ.html
+	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
+
+merge_and_sort:
+	@echo "merge and sort"
+	@pipenv run python recipes/merge_and_sort.py
 
 guid.backmerge:
 	@echo "guid backmerge"
@@ -59,10 +67,12 @@ rest.process.sources: $(LEVELS_WO_C:=.data)
 c.brainbrew.source_to_anki:
 	@echo "brainbrew source_to_anki (C)"
 	@pipenv run brainbrew run recipes/source_to_anki_c.yaml
+	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 
 rest.brainbrew.source_to_anki:
 	@echo "brainbrew source_to_anki (non-C)"
 	@pipenv run brainbrew run recipes/source_to_anki_rest.yaml
+	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 
 %.data:
 	@echo "*" $*

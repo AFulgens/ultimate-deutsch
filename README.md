@@ -2,15 +2,16 @@
 
 To Dos:
 
-- anki_to_source and backmerge into CSVs, sort&sync CSVs
-- fix verb HTML generation
 - `src/headers/desc.html`
   - Multi-lingual?
+- badges
+- niveau / duden-level
 - Makefile step naming + logging
 - CONTRIBUTING.md
 - README.md
 - sources.csv
   - Add PDF sources?
+- fix verb HTML generation
 
 Open question:
 
