@@ -42,8 +42,10 @@
           columns_to_fields:
             <<: &columns_to_fields
               # wort.csv, common part
-              tags : tags
-              wort : wort
+              tags   : tags
+              wort   : wort
+              niveau : niveau
+              duden_haeufigkeit : duden_haeufigkeit
 
               # substantiv.csv
               geschlecht       : geschlecht

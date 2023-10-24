@@ -16,7 +16,11 @@ clean:
 
 fix_encodings:
 	@echo "fixing known encoding issues"
+
 	@find ./build -type f | xargs sed -i 's_\xC3\x83\xC2\xA4_ä_g'
+	@find ./build -type f | xargs sed -i 's_\xC3\xBC_ü_g'
+
+	@find ./build -type f | xargs sed -i 's_\xE4_ä_g'
 	@find ./build -type f | xargs sed -i 's_\xFC_ü_g'
 
 
@@ -61,6 +65,8 @@ guid.backmerge:
 	@pipenv run python recipes/guid_backmerge.py
 
 c.process.sources: c.data
+	@echo "split tags"
+	@pipenv run python recipes/split_tags.py
 
 rest.process.sources: $(LEVELS_WO_C:=.data)
 
@@ -86,29 +92,29 @@ c.data.base: src/data/wort.csv
 
 b2.data.base: src/data/wort.csv
 	@echo "copy b2 - wort"
-	@head -n1 ./src/data/wort.csv > ./build/data/b2/wort.csv
-	@grep "::B2" ./src/data/wort.csv >> ./build/data/b2/wort.csv
-	@grep "::B1" ./src/data/wort.csv >> ./build/data/b2/wort.csv
-	@grep "::A2" ./src/data/wort.csv >> ./build/data/b2/wort.csv
-	@grep "::A1" ./src/data/wort.csv >> ./build/data/b2/wort.csv
+	@head -n1 ./build/data/c/wort.csv > ./build/data/b2/wort.csv
+	@grep "::B2" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::B1" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::A2" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
+	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
 
 b1.data.base: src/data/wort.csv
 	@echo "copy b1 - wort"
-	@head -n1 ./src/data/wort.csv > ./build/data/b1/wort.csv
-	@grep "::B1" ./src/data/wort.csv >> ./build/data/b1/wort.csv
-	@grep "::A2" ./src/data/wort.csv >> ./build/data/b1/wort.csv
-	@grep "::A1" ./src/data/wort.csv >> ./build/data/b1/wort.csv
+	@head -n1 ./build/data/c/wort.csv > ./build/data/b1/wort.csv
+	@grep "::B1" ./build/data/c/wort.csv >> ./build/data/b1/wort.csv
+	@grep "::A2" ./build/data/c/wort.csv >> ./build/data/b1/wort.csv
+	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/b1/wort.csv
 
 a2.data.base: src/data/wort.csv
 	@echo "copy a2 - wort"
-	@head -n1 ./src/data/wort.csv > ./build/data/a2/wort.csv
-	@grep "::A2" ./src/data/wort.csv >> ./build/data/a2/wort.csv
-	@grep "::A1" ./src/data/wort.csv >> ./build/data/a2/wort.csv
+	@head -n1 ./build/data/c/wort.csv > ./build/data/a2/wort.csv
+	@grep "::A2" ./build/data/c/wort.csv >> ./build/data/a2/wort.csv
+	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/a2/wort.csv
 
 a1.data.base: src/data/wort.csv
 	@echo "copy a1 - wort"
-	@head -n1 ./src/data/wort.csv > ./build/data/a1/wort.csv
-	@grep "::A1" ./src/data/wort.csv >> ./build/data/a1/wort.csv
+	@head -n1 ./build/data/c/wort.csv > ./build/data/a1/wort.csv
+	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/a1/wort.csv
 
 define data_dir
 $$(level).data.dir:

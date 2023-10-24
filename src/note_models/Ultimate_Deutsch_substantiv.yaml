@@ -4,6 +4,8 @@ fields: &fields
   - name: wort
   - name: fremd
   - name: fremd_hinweis
+  - name: niveau
+  - name: duden_haeufigkeit
   - name: geschlecht
   - name: nominativ
   - name: nominativ_plural

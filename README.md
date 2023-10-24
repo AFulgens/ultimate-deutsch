@@ -3,7 +3,6 @@
 To Dos:
 
 - badges
-- niveau / duden-level
 - Makefile step naming + logging
 - CONTRIBUTING.md
 - README.md

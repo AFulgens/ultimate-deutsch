@@ -39,6 +39,8 @@
             # wort.csv, common part
             tags : tags
             wort : wort
+            niveau : niveau
+            duden_haeufigkeit : duden_haeufigkeit
 
             # substantiv.csv
             geschlecht       : geschlecht

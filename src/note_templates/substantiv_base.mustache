@@ -150,23 +150,77 @@
 
 <hr/>
 
+<div class="type" style="display:inline;">Niveau:</div> {{niveau}} <br/><br/>
+
+{{#duden_haeufigkeit}}
+
+    <div class="type" style="display:inline;">Häufigkeit:</div> <div id="duden" style="display:inline;  ">{{duden_haeufigkeit}}</div> <br/><br/>
+
+{{/duden_haeufigkeit}}
 
 {{#hinweis}}
 
-    <div class="type">Hinweis:</div> {{hinweis}}
-
-    <br/><br/>
+    <div class="type" style="display:inline;">Hinweis:</div> {{hinweis}} <br/><br/>
 
 {{/hinweis}}
 
-<div class="type">Wort in Fremdsprache:</div> {{#fremd}}{{fremd}}{{/fremd}}{{^fremd}}&mdash;{{/fremd}}
+<div class="type" style="display:inline;">Wort in Fremdsprache:</div> {{#fremd}}{{fremd}}{{/fremd}}{{^fremd}}N/A{{/fremd}} <br/><br/>
 
 {{#fremd_hinweis}}
 
-    <div class="info">Hinweis für Fremdsprache:</div> {{fremd_hinweis}}
+    <div class="info" style="display:inline;">Hinweis für Fremdsprache:</div> {{fremd_hinweis}} <br/><br/>
 
 {{/fremd_hinweis}}',
   'script':'<script>
+
+    var duden = document.getElementById("duden")
+
+    if (duden) {
+
+      var duden_counter = 1;
+
+      var duden_level = duden.innerText;
+
+      duden.innerHTML = ""
+
+      for (; duden_counter <= duden_level; ++duden_counter) {
+
+        duden.innerHTML += "&starf; "
+
+      }
+
+      for (; duden_counter <= 5; ++duden_counter) {
+
+        duden.innerHTML += "&star; "
+
+      }
+
+      switch (duden_level) {
+
+        case "1":
+          duden.innerHTML += "(1000+ / 1M)";
+          break;
+
+        case "2":
+          duden.innerHTML += "(100+ / 1M)";
+          break;
+
+        case "3":
+          duden.innerHTML += "(10+ / 1M)";
+          break;
+
+        case "4":
+          duden.innerHTML += "(1+ / 1M)";
+          break;
+
+        case "5":
+          duden.innerHTML += "(1- / 1M)";
+          break;
+
+      }
+
+    }
+
     var articles = new Map()
 
     articles.set("plural-nominativ", "die")
