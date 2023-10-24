@@ -2,8 +2,6 @@
 
 To Dos:
 
-- `src/headers/desc.html`
-  - Multi-lingual?
 - badges
 - niveau / duden-level
 - Makefile step naming + logging
@@ -12,6 +10,7 @@ To Dos:
 - sources.csv
   - Add PDF sources?
 - fix verb HTML generation
+- fill description
 
 Open question:
 

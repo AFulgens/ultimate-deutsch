@@ -82,7 +82,7 @@ rest.brainbrew.source_to_anki:
 c.data.base: src/data/wort.csv
 	@echo "copy c - wort"
 	@cp ./src/data/wort.csv ./build/data/c/wort.csv
-	@cp ./src/headers/desc.html ./build/headers/desc.html
+	@cp ./src/headers/description*.html ./build/headers/
 
 b2.data.base: src/data/wort.csv
 	@echo "copy b2 - wort"
