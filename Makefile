@@ -58,10 +58,13 @@ yq:
 	@echo ""
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 
-chevron:
-	@echo "[chevron] creating note templates from mustache templates"
-	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/singular_nominativ.mustache > ./build/note_models/substantiv/singular_nominativ.html
-	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/plural_nominativ.mustache > ./build/note_models/substantiv/plural_nominativ.html
+SUBSTANTIV := singular_nominativ plural_nominativ singular_akkusativ plural_akkusativ singular_genitiv plural_genitiv singular_dativ plural_dativ
+
+%.chevron.substantiv:
+	@echo "[chevron] substantiv / $*"
+	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/$*.mustache > ./build/note_models/substantiv/$*.html
+
+chevron: $(SUBSTANTIV:=.chevron.substantiv)
 	@echo ""
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 
@@ -76,7 +79,7 @@ guid.backmerge:
 	@echo ""
 
 c.process.sources: c.data
-	@echo "Splitting tags into 'Niveau' and 'Duden Häufigkeit'"
+	@echo "[split tags] Create 'Niveau' and 'Duden Häufigkeit'"
 	@pipenv run python recipes/split_tags.py
 	@echo ""
 
@@ -101,13 +104,13 @@ rest.brainbrew.source_to_anki:
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.files
 
 c.data.base: src/data/wort.csv
-	@echo "[Copy C] ∀w: 'wort'"
+	@echo "[copy c] ∀w: 'wort'"
 	@cp ./src/data/wort.csv ./build/data/c/wort.csv
 	@cp ./src/headers/description*.html ./build/headers/
 	@echo ""
 
 b2.data.base: src/data/wort.csv
-	@echo "[Copy B2] ∀w: 'wort' | 'Niveau' in (A1, A2, B1, B2)"
+	@echo "[copy b2] ∀w: 'wort' | 'Niveau' in (A1, A2, B1, B2)"
 	@head -n1 ./build/data/c/wort.csv > ./build/data/b2/wort.csv
 	@grep "::B2" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
 	@grep "::B1" ./build/data/c/wort.csv >> ./build/data/b2/wort.csv
@@ -116,7 +119,7 @@ b2.data.base: src/data/wort.csv
 	@echo ""
 
 b1.data.base: src/data/wort.csv
-	@echo "[Copy B1] ∀w: 'wort' | 'Niveau' in (A1, A2, B1)"
+	@echo "[copy b1] ∀w: 'wort' | 'Niveau' in (A1, A2, B1)"
 	@head -n1 ./build/data/c/wort.csv > ./build/data/b1/wort.csv
 	@grep "::B1" ./build/data/c/wort.csv >> ./build/data/b1/wort.csv
 	@grep "::A2" ./build/data/c/wort.csv >> ./build/data/b1/wort.csv
@@ -124,14 +127,14 @@ b1.data.base: src/data/wort.csv
 	@echo ""
 
 a2.data.base: src/data/wort.csv
-	@echo "[Copy A2] ∀w: 'wort' | 'Niveau' in (A1, A2)"
+	@echo "[copy a2] ∀w: 'wort' | 'Niveau' in (A1, A2)"
 	@head -n1 ./build/data/c/wort.csv > ./build/data/a2/wort.csv
 	@grep "::A2" ./build/data/c/wort.csv >> ./build/data/a2/wort.csv
 	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/a2/wort.csv
 	@echo ""
 
 a1.data.base: src/data/wort.csv
-	@echo "[Copy A1] ∀w: 'wort' | 'Niveau' in (A1)"
+	@echo "[copy a1] ∀w: 'wort' | 'Niveau' in (A1)"
 	@head -n1 ./build/data/c/wort.csv > ./build/data/a1/wort.csv
 	@grep "::A1" ./build/data/c/wort.csv >> ./build/data/a1/wort.csv
 	@echo ""

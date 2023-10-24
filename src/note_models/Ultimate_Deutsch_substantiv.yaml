@@ -22,6 +22,24 @@ singular_nominativ: &singular_nominativ
 plural_nominativ: &plural_nominativ
   name: Plural Nominativ
   html_file: build/note_models/substantiv/plural_nominativ.html
+singular_akkusativ: &singular_akkusativ
+  name: Singular Akkusativ
+  html_file: build/note_models/substantiv/singular_akkusativ.html
+plural_akkusativ: &plural_akkusativ
+  name: Plural Akkusativ
+  html_file: build/note_models/substantiv/plural_akkusativ.html
+singular_genitiv: &singular_genitiv
+  name: Singular Genitiv
+  html_file: build/note_models/substantiv/singular_genitiv.html
+plural_genitiv: &plural_genitiv
+  name: Plural Genitiv
+  html_file: build/note_models/substantiv/plural_genitiv.html
+singular_dativ: &singular_dativ
+  name: Singular Dativ
+  html_file: build/note_models/substantiv/singular_dativ.html
+plural_dativ: &plural_dativ
+  name: Plural Dativ
+  html_file: build/note_models/substantiv/plural_dativ.html
 ---
 name: UD Substantiv (A1)
 id: ad0ef57b-05d9-4692-a309-984767e89b28
@@ -40,3 +58,9 @@ file_name: c/Ultimate_Deutsch_substantiv.yaml
 templates:
   - *singular_nominativ
   - *plural_nominativ
+  - *singular_akkusativ
+  - *plural_akkusativ
+  - *singular_genitiv
+  - *plural_genitiv
+  - *singular_dativ
+  - *plural_dativ
