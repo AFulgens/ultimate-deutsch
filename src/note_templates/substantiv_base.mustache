@@ -167,7 +167,7 @@
 
 {{/fremd_hinweis}}',
   'script':'<script>
-    let articles = new Map()
+    var articles = new Map()
 
     articles.set("plural-nominativ", "die")
 
@@ -259,7 +259,7 @@
 
     articles.forEach((value, key) => {
 
-        let curr = document.getElementById(key)
+        var curr = document.getElementById(key)
 
         if (key !== type) {
 
