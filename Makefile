@@ -27,7 +27,7 @@ fix_encodings:
 
 	@echo ""
 
-source_to_anki: clean structure yq chevron merge_and_sort c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
+source_to_anki: clean structure yq create.templates chevron merge_and_sort c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
 	@echo "source_to_anki finished"
 	@echo ""
 
@@ -45,6 +45,7 @@ structure: data.dirs
 	@echo "[structure] mkdir build/*"
 	@mkdir -p ./build/headers
 	@mkdir -p ./build/note_models/substantiv
+	@mkdir -p ./build/note_templates/substantiv
 	@echo ""
 
 data.dirs: $(LEVELS:=.data.dir)
@@ -60,11 +61,32 @@ yq:
 
 SUBSTANTIV := singular_nominativ plural_nominativ singular_akkusativ plural_akkusativ singular_genitiv plural_genitiv singular_dativ plural_dativ
 
-%.chevron.substantiv:
-	@echo "[chevron] substantiv / $*"
-	@pipenv run chevron -lα -rω -d src/note_templates/substantiv_base.mustache src/note_models/substantiv/$*.mustache > ./build/note_models/substantiv/$*.html
+define create_template
+$$(template).create.template:
+	@echo "[create_template] generating template model for $(template)"
+	@sed "s-%%TYPE%%-$(template)-g" ./src/note_templates/substantiv.mustache > ./build/note_templates/substantiv/$(template).mustache
+endef
 
-chevron: $(SUBSTANTIV:=.chevron.substantiv)
+$(foreach template, $(SUBSTANTIV), $(eval $(create_template)))
+
+create.templates: $(SUBSTANTIV:%=%.create.template)
+	@echo ""
+
+SUBSTANTIV_MODELS := $(wildcard ./build/note_templates/substantiv/*.mustache)
+
+%.chevron.substantiv: %
+	@echo "[chevron] substantiv / '$(shell echo -n $* | rev | cut -d'/' -f1 | rev)'"
+	@pipenv run chevron -lα -rω \
+	    -d ./src/note_templates/substantiv_base.mustache \
+	    ./build/note_templates/substantiv/$(shell echo -n $* | rev | cut -d'/' -f1 | rev) \
+	    > ./build/note_models/substantiv/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1
+	@pipenv run chevron -l!! -r?? \
+	    -d ./src/note_templates/common.mustache \
+	    ./build/note_models/substantiv/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1 \
+	    > ./build/note_models/substantiv/$(shell echo -n $* | rev | cut -d'/' -f1 | cut -d'.' -f2 | rev).html
+	@rm ./build/note_models/substantiv/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1
+
+chevron: $(SUBSTANTIV_MODELS:%=%.chevron.substantiv)
 	@echo ""
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 

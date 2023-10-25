@@ -2,11 +2,11 @@
 
 To Dos:
 
-- badges
 - fix verb HTML generation
+- badges
 - fill description
 
-Open question:
+Open questions:
 
 - Does media also have to be split across decks or only the needed will be included?
 
