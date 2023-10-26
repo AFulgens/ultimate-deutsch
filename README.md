@@ -2,7 +2,6 @@
 
 To Dos:
 
-- fix verb HTML generation
 - badges
 - fill description
 

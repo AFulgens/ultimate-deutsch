@@ -6,8 +6,8 @@ fields: &fields
   - name: niveau
   - name: duden_haeufigkeit
   - name: praesens_singular_1
-  - name: praesens_singular_3
   - name: praesens_singular_2
+  - name: praesens_singular_3
   - name: praesens_plural_1
   - name: praesens_plural_2
   - name: praesens_plural_3
@@ -36,9 +36,88 @@ fields: &fields
   - name: infinitiv
   - name: perfekt_mit
   - name: perfekt_hinweis
-praesens_singular: &praesens_singular_1
+  - name: hinweis
+praesens_singular_1: &praesens_singular_1
   name: Präsens Singular 1
-  html_file: src/note_models/verb/praesens_singular_1.html
+  html_file: build/note_models/verb/praesens_singular_1.html
+praesens_singular_2: &praesens_singular_2
+  name: Präsens Singular 2
+  html_file: build/note_models/verb/praesens_singular_2.html
+praesens_singular_3: &praesens_singular_3
+  name: Präsens Singular 3
+  html_file: build/note_models/verb/praesens_singular_3.html
+praesens_plural_1: &praesens_plural_1
+  name: Präsens Plural 1
+  html_file: build/note_models/verb/praesens_plural_1.html
+praesens_plural_2: &praesens_plural_2
+  name: Präsens Plural 2
+  html_file: build/note_models/verb/praesens_plural_2.html
+praesens_plural_3: &praesens_plural_3
+  name: Präsens Plural 3
+  html_file: build/note_models/verb/praesens_plural_3.html
+praeteritum_singular_1: &praeteritum_singular_1
+  name: Präteritum Singular 1
+  html_file: build/note_models/verb/praeteritum_singular_1.html
+praeteritum_singular_2: &praeteritum_singular_2
+  name: Präteritum Singular 2
+  html_file: build/note_models/verb/praeteritum_singular_2.html
+praeteritum_singular_3: &praeteritum_singular_3
+  name: Präteritum Singular 3
+  html_file: build/note_models/verb/praeteritum_singular_3.html
+praeteritum_plural_1: &praeteritum_plural_1
+  name: Präteritum Plural 1
+  html_file: build/note_models/verb/praeteritum_plural_1.html
+praeteritum_plural_2: &praeteritum_plural_2
+  name: Präteritum Plural 2
+  html_file: build/note_models/verb/praeteritum_plural_2.html
+praeteritum_plural_3: &praeteritum_plural_3
+  name: Präteritum Plural 3
+  html_file: build/note_models/verb/praeteritum_plural_3.html
+praesens_konjunktiv_i_singular_1: &praesens_konjunktiv_i_singular_1
+  name: Konjunktiv I Singular 1
+  html_file: build/note_models/verb/praesens_konjunktiv_i_singular_1.html
+praesens_konjunktiv_i_singular_2: &praesens_konjunktiv_i_singular_2
+  name: Konjunktiv I Singular 2
+  html_file: build/note_models/verb/praesens_konjunktiv_i_singular_2.html
+praesens_konjunktiv_i_singular_3: &praesens_konjunktiv_i_singular_3
+  name: Konjunktiv I Singular 3
+  html_file: build/note_models/verb/praesens_konjunktiv_i_singular_3.html
+praesens_konjunktiv_i_plural_1: &praesens_konjunktiv_i_plural_1
+  name: Konjunktiv I Plural 1
+  html_file: build/note_models/verb/praesens_konjunktiv_i_plural_1.html
+praesens_konjunktiv_i_plural_2: &praesens_konjunktiv_i_plural_2
+  name: Konjunktiv I Plural 2
+  html_file: build/note_models/verb/praesens_konjunktiv_i_plural_2.html
+praesens_konjunktiv_i_plural_3: &praesens_konjunktiv_i_plural_3
+  name: Konjunktiv I Plural 3
+  html_file: build/note_models/verb/praesens_konjunktiv_i_plural_3.html
+praeteritum_konjunktiv_ii_singular_1: &praeteritum_konjunktiv_ii_singular_1
+  name: Konjunktiv II Singular 1
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_singular_1.html
+praeteritum_konjunktiv_ii_singular_2: &praeteritum_konjunktiv_ii_singular_2
+  name: Konjunktiv II Singular 2
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_singular_2.html
+praeteritum_konjunktiv_ii_singular_3: &praeteritum_konjunktiv_ii_singular_3
+  name: Konjunktiv II Singular 3
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_singular_3.html
+praeteritum_konjunktiv_ii_plural_1: &praeteritum_konjunktiv_ii_plural_1
+  name: Konjunktiv II Plural 1
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_plural_1.html
+praeteritum_konjunktiv_ii_plural_2: &praeteritum_konjunktiv_ii_plural_2
+  name: Konjunktiv II Plural 2
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_plural_2.html
+praeteritum_konjunktiv_ii_plural_3: &praeteritum_konjunktiv_ii_plural_3
+  name: Konjunktiv II Plural 3
+  html_file: build/note_models/verb/praeteritum_konjunktiv_ii_plural_3.html
+partizip_i: &partizip_i
+  name: Partizip I
+  html_file: build/note_models/verb/partizip_i.html
+perfekt: &perfekt
+  name: Perfekt
+  html_file: build/note_models/verb/perfekt.html
+infinitiv: &infinitiv
+  name: Infinitiv
+  html_file: build/note_models/verb/infinitiv.html
 ---
 name: UD Verb (A1)
 id: 36a681ca-3099-461f-913c-01c60f30fc81
@@ -55,3 +134,29 @@ fields: *fields
 file_name: c/Ultimate_Deutsch_verb.yaml
 templates:
   - *praesens_singular_1
+  - *praesens_singular_2
+  - *praesens_singular_3
+  - *praesens_plural_1
+  - *praesens_plural_2
+  - *praesens_plural_3
+  - *praeteritum_singular_1
+  - *praeteritum_singular_2
+  - *praeteritum_singular_3
+  - *praeteritum_plural_1
+  - *praeteritum_plural_2
+  - *praeteritum_plural_3
+  - *praesens_konjunktiv_i_singular_1
+  - *praesens_konjunktiv_i_singular_2
+  - *praesens_konjunktiv_i_singular_3
+  - *praesens_konjunktiv_i_plural_1
+  - *praesens_konjunktiv_i_plural_2
+  - *praesens_konjunktiv_i_plural_3
+  - *praeteritum_konjunktiv_ii_singular_1
+  - *praeteritum_konjunktiv_ii_singular_2
+  - *praeteritum_konjunktiv_ii_singular_3
+  - *praeteritum_konjunktiv_ii_plural_1
+  - *praeteritum_konjunktiv_ii_plural_2
+  - *praeteritum_konjunktiv_ii_plural_3
+  - *partizip_i
+  - *perfekt
+  - *infinitiv

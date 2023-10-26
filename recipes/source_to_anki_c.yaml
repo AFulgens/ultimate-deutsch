@@ -46,6 +46,7 @@
               wort   : wort
               niveau : niveau
               duden_haeufigkeit : duden_haeufigkeit
+              hinweis: hinweis
 
               # substantiv.csv
               geschlecht       : geschlecht
@@ -57,7 +58,6 @@
               dativ_plural     : dativ_plural
               akkusativ        : akkusativ
               akkusativ_plural : akkusativ_plural
-              hinweis          : hinweis
 
               # verb.csv
               praesens_singular_1 : praesens_singular_1

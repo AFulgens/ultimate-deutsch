@@ -1,7 +1,7 @@
-wort,tags,fremd:en,fremd_hinweis:en,fremd:hu,fremd_hinweis:hu
-Abenteuerlust,UD::Aspekte::B2,the love of adventure,,kalandvágy,
-abholen,UD::Goethe::A1,to pick up (something),as in to collect,"elhozni, elvinni",
-Apfel,UD::Goethe::A1,the apple,,alma,
-Konsequenz,UD::Duden::3,the consequence,,,
-Paar,UD::Goethe::A2,the pair,also the couple,pár,két összetartozó dolog
-warnen,UD::Goeteh::B1,to warn,,figyelmeztetni,
+wort,tags,hinweis,fremd:en,fremd_hinweis:en,fremd:hu,fremd_hinweis:hu
+Abenteuerlust,UD::Aspekte::B2,,the love of adventure,,kalandvágy,
+abholen,UD::Goethe::A1,,to pick up (something),as in to collect,"elhozni, elvinni",
+Apfel,UD::Goethe::A1,,the apple,,alma,
+Konsequenz,UD::Duden::3,,the consequence,,,
+Paar,UD::Goethe::A2,,the pair,also the couple,pár,két összetartozó dolog
+warnen,UD::Goeteh::B1,,to warn,,figyelmeztetni,
