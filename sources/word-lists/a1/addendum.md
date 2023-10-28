@@ -1,5 +1,7 @@
 # Addendum for word list A1
 
+[See full word-list here.](./A1.csv)
+
 ## Länder
 
 Apart from "Deutschland" (Germany) and related words, I added the same words for Austria and Switzerland.
