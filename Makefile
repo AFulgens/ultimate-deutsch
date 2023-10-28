@@ -25,6 +25,16 @@ fix_encodings:
 	@find ./build -type f | xargs sed -i 's_\xE4_ä_g'
 	@find ./build -type f | xargs sed -i 's_\xFC_ü_g'
 
+anki_to_source:
+	@echo "anki_to_source"
+	@pipenv run brainbrew run recipes/anki_to_source.yaml
+	@cp ./build/data/c/guid.csv ./src/data/guid.csv
+	@cp ./build/data/c/substantiv.csv ./src/data/substantiv.csv
+	@cp ./build/data/c/verb.csv ./src/data/verb.csv
+	@cp ./build/data/c/wort.csv ./src/data/wort.csv
+	@echo "anki_to_source finsihed"
+	@echo ""
+
 source_to_anki: clean structure source_to_anki.templating source_to_anki.generating
 	@echo "source_to_anki finished"
 	@echo ""
@@ -39,16 +49,6 @@ source_to_anki.generating.message:
 	@echo "[generating decks]"
 
 source_to_anki.generating: source_to_anki.generating.message c.process.sources c.brainbrew.source_to_anki guid.backmerge rest.process.sources rest.brainbrew.source_to_anki
-	@echo ""
-
-anki_to_source:
-	@echo "anki_to_source"
-	@pipenv run brainbrew run recipes/anki_to_source.yaml
-	@cp ./build/data/c/guid.csv ./src/data/guid.csv
-	@cp ./build/data/c/substantiv.csv ./src/data/substantiv.csv
-	@cp ./build/data/c/verb.csv ./src/data/verb.csv
-	@cp ./build/data/c/wort.csv ./src/data/wort.csv
-	@echo "anki_to_source finsihed"
 	@echo ""
 
 structure: data.dirs
@@ -226,12 +226,3 @@ define data_merge
 endef
 
 $(foreach level, $(LEVELS), $(eval $(data_merge)))
-
-#	@echo "@" "$$@"
-#	@echo "%" "$$%"
-#	@echo "<" "$$<"
-#	@echo "?" "$$?"
-#	@echo "^" "$$^"
-#	@echo "+" "$$+"
-#	@echo "|" "$$|"
-#	@echo "*" "$$*"
