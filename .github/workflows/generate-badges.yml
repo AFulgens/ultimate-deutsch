@@ -1,0 +1,137 @@
+name: Generating badges for the README
+on:
+  push:
+    branches:
+    - '*'
+    - '!badges'
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    name: Gathering data
+    outputs:
+      a1_wc   : ${{ steps.gather.outputs.a1_wc }}
+      a1_wc_c : ${{ steps.gather.outputs.a1_wc_c }}
+      a1_sub   : ${{ steps.gather.outputs.a1_sub }}
+      a1_sub_c : ${{ steps.gather.outputs.a1_sub_c }}
+      a1_verb   : ${{ steps.gather.outputs.a1_verb }}
+      a1_verb_c : ${{ steps.gather.outputs.a1_verb_c }}
+      a1_trans_en   : ${{ steps.gather.outputs.a1_trans_en }}
+      a1_trans_en_c : ${{ steps.gather.outputs.a1_trans_en_c }}
+      a1_trans_hu   : ${{ steps.gather.outputs.a1_trans_hu }}
+      a1_trans_hu_c : ${{ steps.gather.outputs.a1_trans_hu_c }}
+
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+
+    - name: Gather data
+      id: gather
+      run: |
+        a1_wc=$(tail -n +2 sources/word-lists/a1/A1.csv | wc -l)
+        echo "a1_wc=$a1_wc" >> "$GITHUB_OUTPUT"
+        echo "a1_wc_c=282" >> "$GITHUB_OUTPUT"
+
+        a1_sub=$(bc <<< "scale=2; $(grep -f <(grep ",Substantiv" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/substantiv.csv | cut -d',' -f1 | wc -l)/$a1_wc")
+        echo "a1_sub=$a1_sub%" >> "$GITHUB_OUTPUT"
+        if [ $a1_sub -lt 50 ]; then a1_sub_c=800,ffd700; elif [ $a1_sub -lt 100 ]; then a1_sub_c=ffd700,282; else a1_sub_c=282; fi
+        echo "a1_sub_c=$a1_sub_c" >> "$GITHUB_OUTPUT"
+
+        a1_verb=$(bc <<< "scale=2; $(grep -f <(grep ",Verb" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/verb.csv | cut -d',' -f1 | wc -l)/$a1_wc")
+        echo "a1_verb=$a1_verb%" >> "$GITHUB_OUTPUT"
+        if [ $a1_verb -lt 50 ]; then a1_verb_c=800,ffd700; elif [ $a1_verb -lt 100 ]; then a1_verb_c=ffd700,282; else a1_verb_c=282; fi
+        echo "a1_verb_c=$a1_verb_c" >> "$GITHUB_OUTPUT"
+
+        a1_trans_en=$(bc <<< "scale=2; $(grep "::A1" src/data/wort.csv | cut -d',' -f4 | grep -E '.+' | wc -l)/$a1_wc")
+        echo "a1_trans_en=$a1_trans_en%" >> "$GITHUB_OUTPUT"
+        if [ $a1_trans_en -lt 50 ]; then a1_trans_en_c=800,ffd700; elif [ $a1_trans_en -lt 100 ]; then a1_trans_en_c=ffd700,282; else a1_trans_en_c=282; fi
+        echo "a1_trans_en_c=$a1_trans_en_c" >> "$GITHUB_OUTPUT"
+
+        a1_trans_hu=$(bc <<< "scale=2; $(grep "::A1" src/data/wort.csv | cut -d',' -f6 | grep -E '.+' | wc -l)/$a1_wc")
+        echo "a1_trans_hu=$a1_trans_hu%" >> "$GITHUB_OUTPUT"
+        if [ $a1_trans_hu -lt 50 ]; then a1_trans_hu_c=800,ffd700; elif [ $a1_trans_hu -lt 100 ]; then a1_trans_hu_c=ffd700,282; else a1_trans_hu_c=282; fi
+        echo "a1_trans_hu_c=$a1_trans_hu_c" >> "$GITHUB_OUTPUT"
+
+  generate:
+    runs-on: ubuntu-latest
+    name: Generating badges
+    needs: prepare
+    strategy:
+      matrix:
+        include:
+          - level: a1
+            type: wc
+            label: Word Count
+            filename: word-count
+          - level: a1
+            type: sub
+            label: Nouns
+            filename: noun-progress
+          - level: a1
+            type: verb
+            label: Verb
+            filename: verb-progress
+          - level: a1
+            type: trans_en
+            label: EN
+            filename: translation-en-progress
+          - level: a1
+            type: trans_hu
+            label: HU
+            filename: translation-hu-progress
+
+    steps:
+      - name: Create destination directories
+        run: mkdir -p "badges/${{ matrix.level }}"
+
+      - name: Generate the badge for "${{ matrix.label }}" "${{ matrix.level }}"
+        uses: emibcn/badge-action@v2.0.2
+        id: generate
+        with:
+          label: ${{ matrix.label }}
+          status: ${{ needs.prepare.outputs[format('{0}_{1}', matrix.level, matrix.type)] }}
+          color: ${{ needs.prepare.outputs[format('{0}_{1}_c', matrix.level, matrix.type)] }}
+          path: badges/a1/${{ matrix.filename }}.svg
+
+      - name: Upload badges as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: badges
+          path: badges
+          if-no-files-found: error
+
+  persist_all:
+    runs-on: ubuntu-latest
+    name: Persisting badges
+    needs: generate
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout badges branch
+      uses: actions/checkout@v4
+      with:
+        ref: badges
+
+    - name: Download badge artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: badges
+        path: badges
+
+    - name: Commit badges
+      continue-on-error: true
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add badges
+        git commit -m "Add/Update badges"
+
+    - name: Push badges commit
+      uses: ad-m/github-push-action@master
+      if: ${{ success() }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: badges
