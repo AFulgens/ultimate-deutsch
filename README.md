@@ -81,7 +81,6 @@ In table with Wiki-links:
 
 ## To Dos
 
-- badges
 - basic grammar know-how
 - Combination cards, for example as ideas:
   - Instead of one for each person, have one for a mood ⊕ tense
