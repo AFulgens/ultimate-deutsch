@@ -34,24 +34,30 @@ jobs:
         echo "a1_wc=$a1_wc" >> "$GITHUB_OUTPUT"
         echo "a1_wc_c=282" >> "$GITHUB_OUTPUT"
 
-        a1_sub=$(bc <<< "scale=2; $(grep -f <(grep ",Substantiv" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/substantiv.csv | cut -d',' -f1 | wc -l)/$a1_wc")
+        tmp=$(tail -n +2 sources/word-lists/a1/A1.csv | grep ",Substantiv" | wc -l)
+        a1_sub=$(bc <<< "scale=4; $(grep -f <(grep ",Substantiv" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/substantiv.csv | cut -d',' -f1 | wc -l)/$tmp*100")
+        a1_sub=${a1_sub:0:5}
+        if (( $(echo "$a1_sub < 50.0" | bc -l) )); then a1_sub_c=800,ffd700; elif (( $(echo "$a1_sub < 100.0" | bc -l) )); then a1_sub_c=ffd700,282; else a1_sub_c=282; fi
         echo "a1_sub=$a1_sub%" >> "$GITHUB_OUTPUT"
-        if [ $a1_sub -lt 50 ]; then a1_sub_c=800,ffd700; elif [ $a1_sub -lt 100 ]; then a1_sub_c=ffd700,282; else a1_sub_c=282; fi
         echo "a1_sub_c=$a1_sub_c" >> "$GITHUB_OUTPUT"
 
-        a1_verb=$(bc <<< "scale=2; $(grep -f <(grep ",Verb" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/verb.csv | cut -d',' -f1 | wc -l)/$a1_wc")
+        tmp=$(tail -n +2 sources/word-lists/a1/A1.csv | grep ",Verb" | wc -l)
+        a1_verb=$(bc <<< "scale=4; $(grep -f <(grep ",Verb" sources/word-lists/a1/A1.csv | cut -d',' -f1) src/data/verb.csv | cut -d',' -f1 | wc -l)/$tmp*100")
+        a1_verb=${a1_verb:0:5}
+        if (( $(echo "a1_verb < 50.0" | bc -l) )); then a1_verb_c=800,ffd700; elif (( $(echo "a1_verb < 100.0" | bc -l) )); then a1_verb_c=ffd700,282; else a1_verb_c=282; fi
         echo "a1_verb=$a1_verb%" >> "$GITHUB_OUTPUT"
-        if [ $a1_verb -lt 50 ]; then a1_verb_c=800,ffd700; elif [ $a1_verb -lt 100 ]; then a1_verb_c=ffd700,282; else a1_verb_c=282; fi
         echo "a1_verb_c=$a1_verb_c" >> "$GITHUB_OUTPUT"
 
-        a1_trans_en=$(bc <<< "scale=2; $(grep "::A1" src/data/wort.csv | cut -d',' -f4 | grep -E '.+' | wc -l)/$a1_wc")
+        a1_trans_en=$(bc <<< "scale=4; $(grep "::A1" src/data/wort.csv | rev | cut -d',' -f4 | grep -E '.+' | wc -l)/$a1_wc*100")
+        a1_trans_en=${a1_trans_en:0:5}
+        if (( $(echo "a1_trans_en < 50.0" | bc -l) )); then a1_trans_en_c=800,ffd700; elif (( $(echo "a1_trans_en < 100.0" | bc -l) )); then a1_trans_en_c=ffd700,282; else a1_trans_en_c=282; fi
         echo "a1_trans_en=$a1_trans_en%" >> "$GITHUB_OUTPUT"
-        if [ $a1_trans_en -lt 50 ]; then a1_trans_en_c=800,ffd700; elif [ $a1_trans_en -lt 100 ]; then a1_trans_en_c=ffd700,282; else a1_trans_en_c=282; fi
         echo "a1_trans_en_c=$a1_trans_en_c" >> "$GITHUB_OUTPUT"
 
-        a1_trans_hu=$(bc <<< "scale=2; $(grep "::A1" src/data/wort.csv | cut -d',' -f6 | grep -E '.+' | wc -l)/$a1_wc")
+        a1_trans_hu=$(bc <<< "scale=4; $(grep "::A1" src/data/wort.csv | rev | cut -d',' -f2 | grep -E '.+' | wc -l)/$a1_wc*100")
+        a1_trans_hu=${a1_trans_hu:0:5}
+        if (( $(echo "a1_trans_hu < 50.0" | bc -l) )); then a1_trans_hu_c=800,ffd700; elif (( $(echo "a1_trans_hu < 100.0" | bc -l) )); then a1_trans_hu_c=ffd700,282; else a1_trans_hu_c=282; fi
         echo "a1_trans_hu=$a1_trans_hu%" >> "$GITHUB_OUTPUT"
-        if [ $a1_trans_hu -lt 50 ]; then a1_trans_hu_c=800,ffd700; elif [ $a1_trans_hu -lt 100 ]; then a1_trans_hu_c=ffd700,282; else a1_trans_hu_c=282; fi
         echo "a1_trans_hu_c=$a1_trans_hu_c" >> "$GITHUB_OUTPUT"
 
   generate:
