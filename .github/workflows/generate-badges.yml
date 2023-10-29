@@ -63,7 +63,7 @@ jobs:
         include:
           - level: a1
             type: wc
-            label: Word Count
+            label: WC
             filename: word-count
           - level: a1
             type: sub
@@ -71,7 +71,7 @@ jobs:
             filename: noun-progress
           - level: a1
             type: verb
-            label: Verb
+            label: Verbs
             filename: verb-progress
           - level: a1
             type: trans_en
