@@ -26,45 +26,47 @@ Based on [CEFR levels](https://coe.int/en/web/common-european-framework-referenc
 
 Sources are [documented here](./sources/word-lists.md)
 
-<table>
-  <tr style="height: 50px;">
-    <th style="width: 4%;">CEFR</th>
-    <th style="width: 11%;">Word count</th>
-    <th style="width: 11%;">Cards correct¹</th>
-    <th style="width: 11%;">Nouns</th>
-    <th style="width: 11%;">Verbs</th>
-    <th style="width: 11%;">Adjectives</th>
-    <th style="width: 11%;">Misc.</th>
-    <th style="width: 11%;">Translation EN</th>
-    <th style="width: 11%;">Translation HU</th>
-  </tr>
-  <tr style="height: 50px;">
-    <th style=>A1</th>
-    <td style="text-align:center; vertical-align:middle"><a href="sources/word-lists/a1/addendum.md"><img  alt="Word list A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/word-count.svg"/></a></td>
-    <td rowspan="5"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td style="text-align:center; vertical-align:middle"><img alt="Noun progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/noun-progress.svg"/></td>
-    <td style="text-align:center; vertical-align:middle"><img alt="Verb progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/verb-progress.svg"/></td>
-    <td rowspan="5"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td rowspan="5"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td style="text-align:center; vertical-align:middle"><img alt="English translation progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/translation-en-progress.svg"/></td>
-    <td style="text-align:center; vertical-align:middle"><img alt="Hungarian translation progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/translation-hu-progress.svg"/></td>
-  </tr>
-  <tr style="height: 50px;">
+<table style="text-align:center;">
+  <tr>
+    <th>CEFR</th>
+    <th>A1</th>
     <th>A2</th>
-    <td rowspan="4"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td rowspan="4"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td rowspan="4"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td rowspan="4"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-    <td rowspan="4"> <a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a> </td>
-  </tr>
-  <tr style="height: 50px;">
     <th>B1</th>
-  </tr>
-  <tr style="height: 50px;">
     <th>B2</th>
-  </tr>
-  <tr style="height: 50px;">
     <th>C</th>
+  </tr>
+  <tr>
+    <th>Word count</th>
+    <td><a href="sources/word-lists/a1/addendum.md"><img  alt="Word list A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/word-count.svg"/></a></td>
+    <td colspan="4"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Cards correct¹</th>
+    <td colspan="5"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Nouns</th>
+    <td><img alt="Noun progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/noun-progress.svg"/></td>
+    <td colspan="4"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Verbs</th>
+    <td><img alt="Verb progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/verb-progress.svg"/></td>
+    <td colspan="4"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Other types</th>
+    <td colspan="5"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Translation (EN)</th>
+    <td><img alt="English translation progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/translation-en-progress.svg"/></td>
+    <td colspan="4"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
+  </tr>
+  <tr>
+    <th>Translation (HU)</th>
+    <td><img alt="Hungarian translation progress A1" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/a1/translation-hu-progress.svg"/></td>
+    <td colspan="4"><a href="#to-dos"><img alt="Future work" src="https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/Future-Work-blue.svg"/></a></td>
   </tr>
 </table>
 
