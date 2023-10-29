@@ -103,11 +103,13 @@ Bahnsteig,Substantiv
 bald,Adverb
 Balkon,Substantiv
 Banane,Substantiv
-Bank,Substantiv
+Bank_1,Substantiv
+Bank_2,Substantiv
 bar,Adjektiv
 Bauch,Substantiv
 Baum,Substantiv
-Beamte,Substantiv
+Beamte ♀,Substantiviertes Adjektiv
+Beamte ♂,Substantiviertes Adjektiv
 Beamtin,Substantiv
 bedeuten,Verb
 beginnen,Verb
