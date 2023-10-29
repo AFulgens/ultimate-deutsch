@@ -133,6 +133,12 @@ As in, the following is expected to be understood at A1:
 Berlin, 12. April 2002 = Berlin, zwölfter Vierter zweitausendzwei
 ```
 
+## Adjektivische Deklinationen
+
+The following specialties are to be kept in mind for A1:
+
+- "das Alter" is in the word-list, but not "der Alte/ein Alter"
+
 ## Homonymie
 
 Notes about [homographs](https://en.wikipedia.org/wiki/Homonym) and their inclusion in A1:

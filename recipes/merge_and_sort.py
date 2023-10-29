@@ -33,15 +33,17 @@ sort_by_caseless_columns(verb, ["wort"]) \
 
 union = (pd.concat([substantiv['wort'], verb['wort']], join="outer"))
 union = union.reset_index(drop=True)
-union = sort_by_caseless_columns(union)
-union = union.drop_duplicates(ignore_index=True)
+union = sort_by_caseless_columns(union) \
+    .drop_duplicates(ignore_index=True)
 
 guid = pd.read_csv("src/data/guid.csv")
 guid.set_index("wort")
-guid.merge(union, how="outer") \
+guid = guid.merge(union, how="outer")
+sort_by_caseless_columns(guid, ["wort"]) \
     .to_csv("src/data/guid.csv", header=True, index=False)
 
 wort = pd.read_csv("src/data/wort.csv")
 wort.set_index("wort")
-wort.merge(union, how="outer") \
+wort = wort.merge(union, how="outer")
+sort_by_caseless_columns(wort, ["wort"]) \
     .to_csv("src/data/wort.csv", header=True, index=False)

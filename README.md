@@ -81,6 +81,7 @@ In table with Wiki-links:
 
 ## To Dos
 
+- Pivot from Duden-Häufitgkeit to Uni Leipzig Häufigkeitsklasse in the cards
 - basic grammar know-how
 - Combination cards, for example as ideas:
   - Instead of one for each person, have one for a mood ⊕ tense
