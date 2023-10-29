@@ -1,0 +1,74 @@
+<div class="type">Hauptwort</div>
+<div class="value">{{nominativ}}</div>
+
+<table>
+    <tr>
+        <th></th>
+        <th>Singular</th>
+        <th>Plural</th>
+    </tr>
+    <tr>
+        <th>Nominativ</th>
+        <td>
+            <div id="singular_nominativ">##ART## {{nominativ}}</div>
+        </td>
+        <td>
+            <div id="plural_nominativ">
+                {{#nominativ_plural}}
+                    ##ART## {{nominativ_plural}}
+                {{/nominativ_plural}}
+                {{^nominativ_plural}}
+                    &mdash;
+                {{/nominativ_plural}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Genitiv</th>
+        <td>
+            <div id="singular_genitiv">##ART## {{genitiv}}</div>
+        </td>
+        <td>
+            <div id="plural_genitiv">
+                {{#genitiv_plural}}
+                    ##ART## {{genitiv_plural}}
+                {{/genitiv_plural}}
+                {{^genitiv_plural}}
+                    &mdash;
+                {{/genitiv_plural}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Dativ</th>
+        <td>
+            <div id="singular_dativ">##ART## {{dativ}}</div>
+        </td>
+        <td>
+            <div id="plural_dativ">
+                {{#dativ_plural}}
+                    ##ART## {{dativ_plural}}
+                {{/dativ_plural}}
+                {{^dativ_plural}}
+                    &mdash;
+                {{/dativ_plural}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Akkusativ</th>
+        <td>
+            <div id="singular_akkusativ">##ART## {{akkusativ}}</div>
+        </td>
+        <td>
+            <div id="plural_akkusativ">
+                {{#akkusativ_plural}}
+                    ##ART## {{akkusativ_plural}}
+                {{/akkusativ_plural}}
+                {{^akkusativ_plural}}
+                    &mdash;
+                {{/akkusativ_plural}}
+            </div>
+        </td>
+    </tr>
+</table>

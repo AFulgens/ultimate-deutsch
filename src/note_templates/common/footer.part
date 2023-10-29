@@ -1,40 +1,26 @@
-{
-  'footer':'
-
 
 <hr/>
 
 <div class="type" style="display:inline;">Niveau:</div> {{niveau}} <br/><br/>
-
 {{#haeufigkeitsklasse}}
-
     <div class="type" style="display:inline;">Häufigkeit:</div> <div id="frequency_class" style="display:inline;  ">{{haeufigkeitsklasse}}</div> <br/><br/>
-
 {{/haeufigkeitsklasse}}
-
 {{#hinweis}}
-
     <div class="type" style="display:inline;">Hinweis:</div> {{hinweis}} <br/><br/>
-
 {{/hinweis}}
-
 <div class="type" style="display:inline;">Wort auf Fremdsprache:</div> {{#fremd}}{{fremd}}{{/fremd}}{{^fremd}}N/A{{/fremd}} <br/><br/>
-
 {{#fremd_hinweis}}
-
     <div class="info" style="display:inline;">Hinweis für Fremdsprache:</div> {{fremd_hinweis}} <br/><br/>
-
 {{/fremd_hinweis}}
 <script>
-
     var frequency_element = document.getElementById("frequency_class")
-
     if (frequency_element) {
-
       var frequency_class = frequency_element.innerText;
-
       frequency_element.innerHTML = `<progress value="${frequency_class}" max="100"/>`
-
     }
-</script>'
-}
+</script>
+
+<script>
+    var type = "%%TYPE%%"
+    var isFront = %%IS_FRONT%%
+</script>

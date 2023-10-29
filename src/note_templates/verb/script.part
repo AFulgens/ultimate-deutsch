@@ -1,0 +1,49 @@
+<script>
+  var types = ["praesens_singular_1",
+    "praeteritum_singular_1",
+    "praesens_singular_2",
+    "praeteritum_singular_2",
+    "praesens_singular_3",
+    "praeteritum_singular_3",
+    "praesens_plural_1",
+    "praeteritum_plural_1",
+    "praesens_plural_2",
+    "praeteritum_plural_2",
+    "praesens_plural_3",
+    "praeteritum_plural_3",
+    "praesens_konjunktiv_i_singular_1",
+    "praeteritum_konjunktiv_ii_singular_1",
+    "praesens_konjunktiv_i_singular_2",
+    "praeteritum_konjunktiv_ii_singular_2",
+    "praesens_konjunktiv_i_singular_3",
+    "praeteritum_konjunktiv_ii_singular_3",
+    "praesens_konjunktiv_i_plural_1",
+    "praeteritum_konjunktiv_ii_plural_1",
+    "praesens_konjunktiv_i_plural_2",
+    "praeteritum_konjunktiv_ii_plural_2",
+    "praesens_konjunktiv_i_plural_3",
+    "praeteritum_konjunktiv_ii_plural_3",
+    "imperativ_singular_2",
+    "imperativ_plural_2",
+    "partizip_i",
+    "perfekt",
+    "infinitiv"]
+
+  types.forEach(key => {
+		var curr = document.getElementById(key)
+        if (key !== type) {
+            curr.className = "info"
+        }
+        if (isFront) {
+          curr.innerHTML = "..."
+          if (key === type) {
+            curr.innerHTML = "?"
+            curr.className = "question"
+          }
+        } else {
+          if (key === type) {
+            curr.className = "answer"
+          }
+        }
+  })
+</script>

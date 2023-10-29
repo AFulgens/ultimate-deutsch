@@ -42,7 +42,7 @@ source_to_anki: clean structure source_to_anki.templating source_to_anki.generat
 source_to_anki.templating.message:
 	@echo "[creating templates from meta-templates]"
 
-source_to_anki.templating: source_to_anki.templating.message yq create.templates chevron merge_and_sort
+source_to_anki.templating: source_to_anki.templating.message yq create.templates merge_and_sort
 	@echo ""
 
 source_to_anki.generating.message:
@@ -55,9 +55,7 @@ structure: data.dirs
 	@echo "[structure] mkdir build/*"
 	@mkdir -p ./build/headers
 	@mkdir -p ./build/note_models/substantiv
-	@mkdir -p ./build/note_templates/substantiv
 	@mkdir -p ./build/note_models/verb
-	@mkdir -p ./build/note_templates/verb
 	@echo ""
 
 data.dirs: $(LEVELS:=.data.dir)
@@ -91,14 +89,18 @@ VERB := praesens_singular_1 praeteritum_singular_1 \
 	imperativ_singular_2 imperativ_plural_2 \
 	partizip_i perfekt infinitiv
 
-SUBSTANTIV_MODELS := $(foreach val,$(SUBSTANTIV),./build/note_templates/substantiv/$(val).mustache)
-
-VERB_MODELS := $(foreach val,$(VERB),./build/note_templates/verb/$(val).mustache)
-
 define create_template
 %.$$(template).create.template:
 	@echo "[create_template] generating template model for $$*/$(template)"
-	@sed "s-%%TYPE%%-$(template)-g" ./src/note_templates/card.mustache > ./build/note_templates/$$*/$(template).mustache
+	@cat ./src/note_templates/$$*/main.part > ./build/note_models/$$*/$(template).html
+	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-true-g" ./src/note_templates/common/footer.part >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/script.part >> ./build/note_models/$$*/$(template).html
+	@echo "" >> ./build/note_models/$$*/$(template).html
+	@echo "---" >> ./build/note_models/$$*/$(template).html
+	@echo "" >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/main.part >> ./build/note_models/$$*/$(template).html
+	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-false-g" ./src/note_templates/common/footer.part >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/script.part >> ./build/note_models/$$*/$(template).html
 endef
 
 $(foreach template, $(SUBSTANTIV), $(eval $(create_template)))
@@ -107,24 +109,6 @@ $(foreach template, $(VERB), $(eval $(create_template)))
 
 create.templates: $(SUBSTANTIV:%=substantiv.%.create.template) $(VERB:%=verb.%.create.template)
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
-	@echo ""
-
-%.chevron: %
-	@echo "[chevron] '$(shell echo -n $* | rev | cut -d'/' -f2 | rev)' / '$(shell echo -n $* | rev | cut -d'/' -f1 | rev)'"
-	@pipenv run chevron -lα -rω \
-	    -d ./src/note_templates/$(shell echo -n $* | rev | cut -d'/' -f2 | rev).mustache \
-	    ./build/note_templates/$(shell echo -n $* | rev | cut -d'/' -f2 | rev)/$(shell echo -n $* | rev | cut -d'/' -f1 | rev) \
-	    > ./build/note_models/$(shell echo -n $* | rev | cut -d'/' -f2 | rev)/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1
-	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
-	@pipenv run chevron -l!! -r?? \
-	    -d ./src/note_templates/common.mustache \
-	    ./build/note_models/$(shell echo -n $* | rev | cut -d'/' -f2 | rev)/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1 \
-	    > ./build/note_models/$(shell echo -n $* | rev | cut -d'/' -f2 | rev)/$(shell echo -n $* | rev | cut -d'/' -f1 | cut -d'.' -f2 | rev).html
-	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
-	@rm ./build/note_models/$(shell echo -n $* | rev | cut -d'/' -f2 | rev)/$(shell echo -n $* | rev | cut -d'/' -f1 | rev).1
-	@echo ""
-
-chevron: $(SUBSTANTIV_MODELS:%=%.chevron) $(VERB_MODELS:%=%.chevron)
 	@echo ""
 
 merge_and_sort:
@@ -159,7 +143,6 @@ rest.brainbrew.source_to_anki:
 %.data:
 	@echo "[data processing] " $*
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.base
-	@echo ""
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) $*.data.files
 	@echo ""
 
