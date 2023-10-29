@@ -1,20 +1,20 @@
-<svg width="70.4" height="20" viewBox="0 0 704 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Verbs: 0%">
-  <title>Verbs: 0%</title>
+<svg width="95.4" height="20" viewBox="0 0 954 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Verbs: .6200%">
+  <title>Verbs: .6200%</title>
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="m"><rect width="704" height="200" rx="30" fill="#FFF"/></mask>
+  <mask id="m"><rect width="954" height="200" rx="30" fill="#FFF"/></mask>
   <g mask="url(#m)">
     <rect width="414" height="200" fill="#555"/>
-    <rect width="290" height="200" fill="url(#x)" x="414"/>
-    <rect width="704" height="200" fill="url(#a)"/>
+    <rect width="540" height="200" fill="url(#x)" x="414"/>
+    <rect width="954" height="200" fill="url(#a)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="314" fill="#000" opacity="0.25">Verbs</text>
     <text x="50" y="138" textLength="314">Verbs</text>
-    <text x="469" y="148" textLength="190" fill="#000" opacity="0.25">0%</text>
-    <text x="459" y="138" textLength="190">0%</text>
+    <text x="469" y="148" textLength="440" fill="#000" opacity="0.25">.6200%</text>
+    <text x="459" y="138" textLength="440">.6200%</text>
   </g>
   
   <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
