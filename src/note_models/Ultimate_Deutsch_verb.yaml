@@ -4,7 +4,7 @@ fields: &fields
   - name: fremd
   - name: fremd_hinweis
   - name: niveau
-  - name: duden_haeufigkeit
+  - name: haeufigkeitsklasse
   - name: praesens_singular_1
   - name: praesens_singular_2
   - name: praesens_singular_3

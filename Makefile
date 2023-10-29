@@ -138,7 +138,7 @@ guid.backmerge:
 	@echo ""
 
 c.process.sources: c.data
-	@echo "[split tags] Create 'Niveau' and 'Duden Häufigkeit'"
+	@echo "[split tags] Create 'Niveau' and 'Uni Leipzig Häufigkeitsklasse'"
 	@pipenv run python recipes/split_tags.py
 	@echo ""
 

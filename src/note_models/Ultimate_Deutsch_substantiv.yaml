@@ -5,7 +5,7 @@ fields: &fields
   - name: fremd
   - name: fremd_hinweis
   - name: niveau
-  - name: duden_haeufigkeit
+  - name: haeufigkeitsklasse
   - name: geschlecht
   - name: nominativ
   - name: nominativ_plural

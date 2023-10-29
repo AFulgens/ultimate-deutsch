@@ -45,7 +45,7 @@
               tags   : tags
               wort   : wort
               niveau : niveau
-              duden_haeufigkeit : duden_haeufigkeit
+              haeufigkeitsklasse : haeufigkeitsklasse
               hinweis: hinweis
 
               # substantiv.csv
@@ -131,13 +131,13 @@
           - part_id: UD Substantiv (C)
           - part_id: UD Verb (C)
     headers: default header:c:en
-    folder: build/Ultimate_Deutsch_C_EN
+    folder: build/decks/Ultimate_Deutsch_C_EN
     notes:
       part_id: UD C english
 
 - generate_crowd_anki:
     <<: *crowd_anki_common
     headers: default header:c:hu
-    folder: build/Ultimate_Deutsch_C_HU
+    folder: build/decks/Ultimate_Deutsch_C_HU
     notes:
       part_id: UD C hungarian

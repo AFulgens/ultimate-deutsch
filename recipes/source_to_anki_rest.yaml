@@ -40,7 +40,7 @@
               tags : tags
               wort : wort
               niveau : niveau
-              duden_haeufigkeit : duden_haeufigkeit
+              haeufigkeitsklasse : haeufigkeitsklasse
 
               # substantiv.csv
               geschlecht       : geschlecht
@@ -128,13 +128,13 @@
           - part_id: UD Substantiv (A1)
           - part_id: UD Verb (A1)
     headers: default header:a1:en
-    folder: build/Ultimate_Deutsch_A1_EN
+    folder: build/decks/Ultimate_Deutsch_A1_EN
     notes:
       part_id: UD A1 english
 
 - generate_crowd_anki:
     <<: *crowd_anki_common
     headers: default header:a1:hu
-    folder: build/Ultimate_Deutsch_A1_HU
+    folder: build/decks/Ultimate_Deutsch_A1_HU
     notes:
       part_id: UD A1 hungarian

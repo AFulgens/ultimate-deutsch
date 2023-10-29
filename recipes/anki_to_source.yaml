@@ -40,7 +40,7 @@
             tags : tags
             wort : wort
             niveau : niveau
-            duden_haeufigkeit : duden_haeufigkeit
+            haeufigkeitsklasse : haeufigkeitsklasse
 
             # substantiv.csv
             geschlecht       : geschlecht

@@ -13,24 +13,28 @@ def get_niveau(row):
     return "C"
 
 
-def get_duden_haeufigkeit(row):
-    if "::Duden::1" in row["tags"]:
-        return "1"
-    if "::Duden::2" in row["tags"]:
-        return "2"
-    if "::Duden::3" in row["tags"]:
-        return "3"
-    if "::Duden::4" in row["tags"]:
-        return "4"
-    if "::Duden::5" in row["tags"]:
-        return "5"
+def get_freq_class(row):
+    for tag in row["tags"].split(','):
+        if "::UniLeipzig::" in tag:
+            return int(tag.split("::")[-1])
     return None
+
+
+def normalize_freq(row, maxFreq):
+    return int(round(100.0 - int((row["haeufigkeitsklasse"]) * 100.0 / maxFreq), 0))
 
 
 generated = pd.read_csv("build/data/c/wort.csv")
 generated.set_index("wort")
 
 generated["niveau"] = generated.apply(get_niveau, axis=1)
-generated["duden_haeufigkeit"] = generated.apply(get_duden_haeufigkeit, axis=1)
+generated["haeufigkeitsklasse"] = generated.apply(get_freq_class, axis=1)
+
+maxFreq = -1
+for index, row in generated.iterrows():
+    maxFreq = max(maxFreq, int(row["haeufigkeitsklasse"]))
+
+generated["haeufigkeitsklasse"] = generated.apply(normalize_freq, args=(maxFreq,), axis=1)
+
 
 generated.to_csv("build/data/c/wort.csv", header=True, index=False)
