@@ -2,6 +2,12 @@
 
 [See full word-list here.](./A1.csv)
 
+## Notizen
+
+- 2nd meaning of "ankreuzen" ("gegen den Wind segeln") is currently omitted in the notes.
+- 4th, 5th meaning of "aufstehen" ("auf etwas stehen; aufruhen", resp. "offen stehen, geöffnet sein")
+  have their perfect form with "ist" instead of "hat". These forms are currently omitted in the notes.
+
 ## Länder
 
 Apart from "Deutschland" (Germany) and related words, I added the same words for Austria and Switzerland.
@@ -52,7 +58,6 @@ Other examples include nominalization ("abfliegen" ↔ "der Abflug") and verbifi
 Whilst the ♂/♀ are fully expected in the level A1, not all other types are expected even in passive knowledge.
 
 I tried to add all ♂/♀ variants but did not take much care about other derivations.
-
 
 I have added the following composite/derivative words (cf. section "Wortschatz"):
   - Absenderin
