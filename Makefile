@@ -62,9 +62,9 @@ data.dirs: $(LEVELS:=.data.dir)
 
 yq:
 	@echo "[yq] exploding and processing note models"
-	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_substantiv.yaml --no-doc -s '"build/note_models/" + .file_name'
-	@yq_windows_amd64 '. | explode(.)' src/note_models/Ultimate_Deutsch_verb.yaml --no-doc -s '"build/note_models/" + .file_name'
-	@for y in $$(find build/note_models -type f -name "*.yaml"); do yq_windows_amd64 '. |  pick(["name", "id", "css_file", "fields", "templates"])' $$y > $$y.tmp; mv $$y.tmp $$y; done
+	@yq '. | explode(.)' src/note_models/Ultimate_Deutsch_substantiv.yaml --no-doc -s '"build/note_models/" + .file_name'
+	@yq '. | explode(.)' src/note_models/Ultimate_Deutsch_verb.yaml --no-doc -s '"build/note_models/" + .file_name'
+	@for y in $$(find build/note_models -type f -name "*.yaml"); do yq '. |  pick(["name", "id", "css_file", "fields", "templates"])' $$y > $$y.tmp; mv $$y.tmp $$y; done
 	@rm ./.yml ||:
 	@@$(MAKE) --no-print-directory -f $(THIS_FILE) fix_encodings
 	@echo ""
@@ -201,10 +201,8 @@ $(foreach level, $(LEVELS), $(eval $(data_files)))
 define data_merge
 %.$$(level).data.merge: %.csv
 	@echo "[Copy $(level)] '$$(shell echo -n $$* | rev | cut -d'/' -f1 | rev)'"
-	@grep -Ef \
-		<(cut ./build/data/$(level)/wort.csv -d"," -f1 | sed -e 's/^/\^/' | sed -e 's/$$$$/,/') \
-		$$<  \
-		> ./build/data/$(level)/$$(shell echo -n $$* | rev | cut -d'/' -f1 | rev).csv
+	@cut ./build/data/$(level)/wort.csv -d"," -f1 | sed -e 's/^/\^/' | sed -e 's/$$$$/,/' > ./build/tmp
+	@grep -Ef ./build/tmp $$< > ./build/data/$(level)/$$(shell echo -n $$* | rev | cut -d'/' -f1 | rev).csv
 	@echo ""
 endef
 

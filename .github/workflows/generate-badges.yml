@@ -128,6 +128,7 @@ jobs:
         path: badges
 
     - name: Commit badges
+      # do not fail, if there is nothing to commit
       continue-on-error: true
       run: |
         git config --local user.email "action@github.com"
@@ -137,6 +138,7 @@ jobs:
 
     - name: Push badges commit
       uses: ad-m/github-push-action@master
+      # only push, if there was a commit
       if: ${{ success() }}
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

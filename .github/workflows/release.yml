@@ -1,0 +1,110 @@
+name: Releasing Ultimate Deutsch
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Building decks
+    steps:
+    ### Setup
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    - name: Install yq
+      uses: jaxxstorm/action-install-gh-release@v1.10.0
+      with:
+        repo: mikefarah/yq
+        platform: linux
+        arch: amd64
+        cache: enable
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+        cache: 'pipenv'
+    - name: Install pipenv
+      run: |
+        pip install --upgrade pip
+        pip install pipenv --user
+    - name: Install dependencies
+      run: |
+        make setup
+    ### Generate decks and persist generated GUIDs
+    - name: Generate decks
+      run: |
+        make source_to_anki
+#   Amend commit with GUIDs
+
+    ### Create binaries for release
+    - name: Archive
+      run: |
+        pushd ./build/decks/; for deck in */; do tar -czvf "${deck%/}.tar.gz" "${deck%/}"; done; popd
+    - name: Zip
+      run: |
+        pushd ./build/decks; for deck in */; do zip -r "${deck%/}.zip" "$deck"; done; popd
+    - name: Upload deck binaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: release
+        path: |
+          build/decks/*.tar.gz
+          build/decks/*.zip
+        if-no-files-found: error
+
+  archive-repo:
+    runs-on: ubuntu-latest
+    name: Archive repository
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    - name: Checkout badges
+      uses: actions/checkout@v4
+      with:
+        ref: badges
+        path: badges
+    - name: Fix badges in README.md
+      run: |
+        sed -i 's@https://raw.githubusercontent.com/AFulgens/ultimate-deutsch/badges/badges/@./badges/badges/@g' README.md
+    - name: Archive
+      run: |
+        touch standalone-sources.tar.gz # https://stackoverflow.com/a/37993307
+        tar --exclude=".git" --exclude="badges/.git" --exclude="standalone-sources.zip" --exclude="standalone-sources.tar.gz" -czvf standalone-sources.tar.gz *
+    - name: Zip
+      run: |
+        zip standalone-sources.zip -r * -x '.git' 'badges/.git/*' 'standalone-sources.zip' 'standalone-sources.tar.gz'
+    - name: Upload source binaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-sources
+        path: |
+          standalone-sources.tar.gz
+          standalone-sources.zip
+        if-no-files-found: error
+
+  release:
+    runs-on: ubuntu-latest
+    name: Publish release
+    needs: [build, archive-repo]
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    - name: Download badge artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: release
+    - uses: ncipollo/release-action@v1
+      with:
+        draft: ${{ endsWith(github.ref_name, '-alpha') || endsWith(github.ref_name, '-beta') }}
+        artifactErrorsFailBuild: true
+        artifacts: "release/**/*.tar.gz,release/**/*.zip"
+        bodyFile: "src/release_notes/${{ github.ref_name }}.md"
