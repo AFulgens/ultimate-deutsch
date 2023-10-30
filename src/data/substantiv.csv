@@ -99,8 +99,7 @@ Drucker,maskulin,Drucker,Drucker,Druckers,Drucker,Drucker,Druckern,Drucker,Druck
 Durchsage,feminin,Durchsage,Durchsagen,Durchsage,Durchsagen,Durchsage,Durchsagen,Durchsage,Durchsagen
 Durst,maskulin,Durst,,Durst(e)s,,Durst,,Durst,
 Dusche,feminin,Dusche,Duschen,Dusche,Duschen,Dusche,Duschen,Dusche,Duschen
-Konsequenz,feminin,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen
-Paar,Neutrum,Paar,Paare,Paar(e)s,Paare,Paar(e),Paar,Paar,Paare
+E-Mail,"maskulin, Neutrum",E-Mail,E-Mails,E-Mail(s),E-Mails,E-Mail,E-Mails,E-Mail,E-Mails
 Ecke,feminin,Ecke,Ecken,Ecke,Ecken,Ecke,Ecken,Ecke,Ecken
 Ehefrau,feminin,Ehefrau,Ehefrauen,Ehefrau,Ehefrauen,Ehefrau,Ehefrauen,Ehefrau,Ehefrauen
 Ehemann,maskulin,Ehemann,Ehemänner,Ehemann(e)s,Ehemänner,Ehemann,Ehemännern,Ehemann,Ehemänner
@@ -110,7 +109,6 @@ Einladung,feminin,Einladung,Einladungen,Einladung,Einladungen,Einladung,Einladun
 Eintritt,maskulin,Eintritt,Eintritte,Eintritt(e)s,Eintritte,Eintritt,Eintritten,Eintritt,Eintritte
 Einzelzimmer,Neutrum,Einzelzimmer,Einzelzimmer,Einzelzimmers,Einzelzimmer,Einzelzimmer,Einzelzimmern,Einzelzimmer,Einzelzimmer
 Eltern,nur im Plural,,Eltern,,Eltern,,Eltern,,Eltern
-E-Mail,"maskulin, Neutrum",E-Mail,E-Mails,E-Mail(s),E-Mails,E-Mail,E-Mails,E-Mail,E-Mails
 Empfänger,maskulin,Empfänger,Empfänger,Empfängers,Empfänger,Empfänger,Empfängern,Empfänger,Empfänger
 Empfängerin,feminin,Empfängerin,Empfängerinnen,Empfängerin,Empfängerinnen,Empfängerin,Empfängerinnen,Empfängerin,Empfängerinnen
 Ende,Neutrum,Ende,Enden,Endes,Enden,Ende,Enden,Ende,Enden
@@ -119,3 +117,42 @@ Ergebnis,Neutrum,Ergebnis,Ergebnisse,Ergebnisses,Ergebnisse,Ergebnis,Ergebnissen
 Essen,Neutrum,Essen,Essen,Essens,Essen,Essen,Essen,Essen,Essen
 Euro,maskulin,Euro,Euro(s),Euro(s),Euro(s),Euro,Euro(s),Euro,Euro(s)
 Europa,(Neutrum),Europa,,Europa(s),,Europa,,Europa,
+Fahrer,maskulin,Fahrer,Fahrer,Fahrers,Fahrer,Fahrer,Fahrern,Fahrer,Fahrer
+Fahrerin,feminin,Fahrerin,Fahrerinnen,Fahrerin,Fahrerinnen,Fahrerin,Fahrerinnen,Fahrerin,Fahrerinnen
+Fahrkarte,feminin,Fahrkarte,Fahrkarten,Fahrkarte,Fahrkarten,Fahrkarte,Fahrkarten,Fahrkarte,Fahrkarten
+Fahrrad,Neutrum,Fahrrad,Fahrräder,Fahrrad(e)s,Fahrräder,Fahrrad,Fahrrädern,Fahrrad,Fahrräder
+Familie,feminin,Familie,Familien,Familie,Familien,Familie,Familien,Familie,Familien
+Familienname,maskulin,Familienname,Familiennamen,Familiennamens,Familiennamen,Familiennamen,Familiennamen,Familiennamen,Familiennamen
+Familienstand,maskulin,Familienstand,,Familienstand(e)s,,Familienstand,,Familienstand,
+Farbe,feminin,Farbe,Farben,Farbe,Farben,Farbe,Farben,Farbe,Farben
+Fax,maskulin,Fax,Faxen,Faxen,Faxen,Faxen,Faxen,Faxen,Faxen
+Februar,maskulin,Februar,Februare,Februars,Februare,Februar,Februaren,Februar,Februare
+Fehler,maskulin,Fehler,Fehler,Fehlers,Fehler,Fehler,Fehlern,Fehler,Fehler
+Feier,feminin,Feier,Feiern,Feier,Feiern,Feier,Feiern,Feier,Feiern
+Feierabend,maskulin,Feierabend,Feierabende,Feierabends,Feierabende,Feierabend,Feierabenden,Feierabend,Feierabende
+Feiertag,maskulin,Feiertag,Feiertage,Feiertag(e)s,Feiertage,Feiertag,Feiertagen,Feiertag,Feiertage
+Feuer,Neutrum,Feuer,Feuer,Feuers,Feuer,Feuer,Feuern,Feuer,Feuer
+Fieber,Neutrum,Fieber,Fieber,Fiebers,Fieber,Fieber,Fiebern,Fieber,Fieber
+Film,maskulin,Film,Filme,Film(e)s,Filme,Film,Filmen,Film,Filme
+Firma,feminin,Firma,Firmen,Firma,Firmen,Firma,Firmen,Firma,Firmen
+Fisch,maskulin,Fisch,Fische,Fisch(e)s,Fische,Fisch,Fischen,Fisch,Fische
+Flasche,feminin,Flasche,Flaschen,Flasche,Flaschen,Flasche,Flaschen,Flasche,Flaschen
+Fleisch,Neutrum,Fleisch,,Fleisch(e)s,,Fleisch,,Fleisch,
+Flughafen,maskulin,Flughafen,Flughäfen,Flughafens,Flughäfen,Flughafen,Flughäfen,Flughafen,Flughäfen
+Flugzeug,Neutrum,Flugzeug,Flugzeuge,Flugzeug(e)s,Flugzeuge,Flugzeug,Flugzeugen,Flugzeug,Flugzeuge
+Formular,Neutrum,Formular,Formulare,Formulars,Formulare,Formular,Formularen,Formular,Formulare
+Foto,maskulin,Foto,Fotos,Fotos,Fotos,Foto,Fotos,Foto,Fotos
+Frage,feminin,Frage,Fragen,Frage,Fragen,Frage,Fragen,Frage,Fragen
+Frau,feminin,Frau,Frauen,Frau,Frauen,Frau,Frauen,Frau,Frauen
+Freitag,maskulin,Freitag,Freitage,Freitag(e)s,Freitage,Freitag,Freitagen,Freitag,Freitage
+Freizeit,feminin,Freizeit,Freizeiten,Freizeit,Freizeiten,Freizeit,Freizeiten,Freizeit,Freizeiten
+Freund,maskulin,Freund,Freunde,Freund(e)s,Freunde,Freund,Freunden,Freund,Freunde
+Freundin,feminin,Freundin,Freundinnen,Freundin,Freundinnen,Freundin,Freundinnen,Freundin,Freundinnen
+Frühjahr,Neutrum,Frühjahr,Frühjahre,Frühjahr(e)s,Frühjahre,Frühjahr,Frühjahren,Frühjahr,Frühjahre
+Frühling,maskulin,Frühling,Frühlinge,Frühlings,Frühlinge,Frühling,Frühlingen,Frühling,Frühlinge
+Frühstück,Neutrum,Frühstück,Frühstücke,Frühstücks,Frühstücke,Frühstück,Frühstücken,Frühstück,Frühstücke
+Fuß,maskulin,Fuß,Füße,Fußes,Füße,Fuß,Füßen,Fuß,Füße
+Fußball,maskulin,Fußball,Fußbälle,Fußball(e)s,Fußbälle,Fußball,Fußbällen,Fußball,Fußbälle
+Führung,feminin,Führung,Führungen,Führung,Führungen,Führung,Führungen,Führung,Führungen
+Konsequenz,feminin,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen,Konsequenz,Konsequenzen
+Paar,Neutrum,Paar,Paare,Paar(e)s,Paare,Paar(e),Paar,Paar,Paare
