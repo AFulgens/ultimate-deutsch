@@ -90,6 +90,7 @@ In table with Wiki-links:
 - Fill descriptions
 - Fill Readme, take inspiration from Ultimate Geography.
 - How to include addendums?
+- Publish it via Anki Cloud
 
 ## Open questions
 

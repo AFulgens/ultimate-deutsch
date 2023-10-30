@@ -92,15 +92,15 @@ VERB := praesens_singular_1 praeteritum_singular_1 \
 define create_template
 %.$$(template).create.template:
 	@echo "[create_template] generating template model for $$*/$(template)"
-	@cat ./src/note_templates/$$*/main.part > ./build/note_models/$$*/$(template).html
-	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-true-g" ./src/note_templates/common/footer.part >> ./build/note_models/$$*/$(template).html
-	@cat ./src/note_templates/$$*/script.part >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/main.part.html > ./build/note_models/$$*/$(template).html
+	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-true-g" ./src/note_templates/common/footer.part.html >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/script.part.html >> ./build/note_models/$$*/$(template).html
 	@echo "" >> ./build/note_models/$$*/$(template).html
 	@echo "---" >> ./build/note_models/$$*/$(template).html
 	@echo "" >> ./build/note_models/$$*/$(template).html
-	@cat ./src/note_templates/$$*/main.part >> ./build/note_models/$$*/$(template).html
-	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-false-g" ./src/note_templates/common/footer.part >> ./build/note_models/$$*/$(template).html
-	@cat ./src/note_templates/$$*/script.part >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/main.part.html >> ./build/note_models/$$*/$(template).html
+	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-false-g" ./src/note_templates/common/footer.part.html >> ./build/note_models/$$*/$(template).html
+	@cat ./src/note_templates/$$*/script.part.html >> ./build/note_models/$$*/$(template).html
 endef
 
 $(foreach template, $(SUBSTANTIV), $(eval $(create_template)))

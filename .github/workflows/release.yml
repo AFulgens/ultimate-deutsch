@@ -37,7 +37,8 @@ jobs:
     - name: Generate decks
       run: |
         make source_to_anki
-#   Amend commit with GUIDs
+# TODO:  Amend commit with GUIDs
+# TODO:  Rename folders and binaries to include version
 
     ### Create binaries for release
     - name: Archive
