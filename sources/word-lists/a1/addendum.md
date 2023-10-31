@@ -33,6 +33,7 @@ The following non-primary dictionary entries are not included in A1:
 - "der Tag (Jazz Sachbegriff)"
 - "das Tee (Golf)"
 - "Text (nur im Plural; Schriftgrad)"
+- "der Wetter (männliche Person, die wettet)"
 
 ## Länder
 
