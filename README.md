@@ -93,6 +93,8 @@ In table with Wiki-links:
 - How to include addendums?
 - Do we need any media? Pictures? Voice? IPA? Duden Link?
 - Publish it via Anki Cloud
+- What to do with multiple meaning in the dictionary?
+  - Especially for verbs with differing auxiliary verbs for different meanings?
 
 ## Open questions
 
