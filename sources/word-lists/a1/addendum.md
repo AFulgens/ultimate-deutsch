@@ -7,10 +7,21 @@
 - 2nd meaning of "ankreuzen" ("gegen den Wind segeln") is currently omitted in the notes.
 - 4th, 5th meaning of "aufstehen" ("auf etwas stehen; aufruhen", resp. "offen stehen, geöffnet sein")
   have their perfect form with "ist" instead of "hat". These forms are currently omitted in the notes.
-- "(das) Essen (Eigennamen)" is not included in A1.
-- "das Gewicht (Horn)" is not included in A1.
-- "die Gruppe (Graben)" is not included in A1.
-- "die Kunde (Nachricht)" and "die Kunde (Kundschaft)" are not included in A1.
+
+The following non-primary meanings are not included in A1:
+
+- "(das) Essen (Eigennamen)"
+- "das Gewicht (Horn)"
+- "die Gruppe (Graben)"
+- "die Kunde (Nachricht)"
+- "die Kunde (Kundschaft)"
+- "das Mensch (die Frau)"
+- "die Miete (abgedeckte Grube)"
+- "das Mittag (Mittagessen)"
+- "das Moment (Gesichtspunkt)"
+- "das Morgen (Zukunft)"
+- "der Mund (Macht)"
+- "die Mutter (Schraubenmutter)"
 
 ## Länder
 
