@@ -22,6 +22,8 @@ The following non-primary meanings are not included in A1:
 - "das Morgen (Zukunft)"
 - "der Mund (Macht)"
 - "die Mutter (Schraubenmutter)"
+- "der/das Ort (Ahle)"
+- "das Ort (das Ende einer Strecke)"
 
 ## Länder
 
