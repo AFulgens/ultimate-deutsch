@@ -19,13 +19,13 @@
         override:
           deck_description_html_file: build/headers/description.html
           crowdanki_uuid: 87b66638-4a46-47c3-995e-2fb86090d331
-          name: Ultimate Deutsch (C1, C2) [EN]
+          name: Ultimate Deutsch (C) [EN]
       - part_id: default header:c:hu
         file: src/headers/header.yaml
         override:
           deck_description_html_file: build/headers/description_hu.html
           crowdanki_uuid: 00cc45d5-a04f-4a2b-9db6-fc86c189974e
-          name: Ultimate Deutsch (C1, C2) [HU]
+          name: Ultimate Deutsch (C) [HU]
 
   - media_group_from_folder:
     - part_id: all_media

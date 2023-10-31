@@ -1,13 +1,4 @@
 wort,wortart
-(sich) anmelden,Verb
-(sich) anziehen,Verb
-(sich) ausziehen,Verb
-(sich) duschen,Verb
-(sich) freuen,Verb
-(sich) kümmern,Verb
-(sich) treffen,Verb
-(sich) vorstellen,Verb
-(sich) waschen,Verb
 ab,Präposition
 Abend,Substantiv
 aber,Partikel
@@ -38,6 +29,7 @@ ankommen,Verb
 ankreuzen,Verb
 Ankunft,Substantiv
 anmachen,Verb
+anmelden,Verb
 Anmeldung,Substantiv
 Anrede,Substantiv
 Anruf,Substantiv
@@ -49,6 +41,7 @@ Antwort,Substantiv
 Antwortbogen,Substantiv
 antworten,Verb
 Anzeige,Substantiv
+anziehen,Verb
 Apartment,Substantiv
 Apfel,Substantiv
 Appetit,Substantiv
@@ -88,6 +81,7 @@ Aussage,Substantiv
 aussehen,Verb
 aussteigen,Verb
 Ausweis,Substantiv
+ausziehen,Verb
 Auto,Substantiv
 Autobahn,Substantiv
 Automat,Substantiv
@@ -201,6 +195,7 @@ Durchsage,Substantiv
 dürfen,Verb
 Durst,Substantiv
 Dusche,Substantiv
+duschen,Verb
 Ecke,Substantiv
 Ehefrau,Substantiv
 Ehemann,Substantiv
@@ -279,6 +274,7 @@ frei,Adjektiv
 Freitag,Substantiv
 Freizeit,Substantiv
 fremd,Adjektiv
+freuen,Verb
 Freund,Substantiv
 Freundin,Substantiv
 früher,Adverb
@@ -434,6 +430,7 @@ Kuchen,Substantiv
 Kugelschreiber,Substantiv
 Kühlschrank,Substantiv
 kulturell,Adjektiv
+kümmern,Verb
 Kunde,Substantiv
 Kundin,Substantiv
 Kurs,Substantiv
@@ -680,6 +677,7 @@ Toilette,Substantiv
 Tomate,Substantiv
 tot,Adjektiv
 Treppe,Substantiv
+treffen,Verb
 trinken,Verb
 tschüss,Interjektion
 tun,Verb
@@ -719,6 +717,7 @@ vor,Präposition
 Vormittag,Substantiv
 Vorname,Substantiv
 Vorsicht,Substantiv
+vorstellen,Verb
 Vorwahl,Substantiv
 wandern,Verb
 wann,Adverb
@@ -726,6 +725,7 @@ warten,Verb
 warum,Adverb
 was für ein,Idiom
 was,Pronomen (Interrogativ)
+waschen,Verb
 Wasser,Substantiv
 weg sein,Verb
 weh tun,Verb

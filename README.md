@@ -85,11 +85,13 @@ In table with Wiki-links:
 
 - Basic grammar know-how
 - Combination cards, for example as ideas:
+  - Simply card for translation
   - Instead of one for each person, have one for a mood ⊕ tense
   - Instead of one for each casus, have one for singular and one for plural
 - Fill descriptions
 - Fill Readme, take inspiration from Ultimate Geography.
 - How to include addendums?
+- Do we need any media? Pictures? Voice? IPA? Duden Link?
 - Publish it via Anki Cloud
 
 ## Open questions
