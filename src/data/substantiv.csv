@@ -217,7 +217,7 @@ Karte,feminin,Karte,Karten,Karte,Karten,Karte,Karten,Karte,Karten
 Kartoffel,feminin,Kartoffel,Kartoffeln,Kartoffel,Kartoffeln,Kartoffel,Kartoffeln,Kartoffel,Kartoffeln
 Kasse,feminin,Kasse,Kassen,Kasse,Kassen,Kasse,Kassen,Kasse,Kassen
 Kilogramm,Neutrum,Kilogramm,Kilogramm(e),Kilogramms,Kilogramm(e),Kilogramm,Kilogramm(en),Kilogramm,Kilogramm(e)
-Kilometer,maskulin,Kilometer,Kilometer,Kilometers,Kilometer,Kilometer,Kilometern,Kilometer,Kilometer
+Kilometer,"maskulin, Neutrum",Kilometer,Kilometer,Kilometers,Kilometer,Kilometer,Kilometern,Kilometer,Kilometer
 Kind,Neutrum,Kind,Kinder,Kind(e)s,Kinder,Kind,Kindern,Kind,Kinder
 Kindergarten,maskulin,Kindergarten,Kindergärten,Kindergartens,Kindergärten,Kindergarten,Kindergärten,Kindergarten,Kindergärten
 Kino,Neutrum,Kino,Kinos,Kinos,Kinos,Kino,Kinos,Kino,Kinos
@@ -409,3 +409,10 @@ Wochenende,Neutrum,Wochenende,Wochenenden,Wochenendes,Wochenenden,Wochenende,Woc
 Wochentag,maskulin,Wochentag,Wochentage,Wochentag(e)s,Wochentage,Wochentag,Wochentagen,Wochentag,Wochentage
 Wohnung,feminin,Wohnung,Wohnungen,Wohnung,Wohnungen,Wohnung,Wohnungen,Wohnung,Wohnungen
 Wort,Neutrum,Wort,"Worte,<br/>Wörter",Wort(e)s,"Worte,<br/>Wörter",Wort,"Worten,<br/>Wörtern",Wort,"Worte,<br/>Wörter"
+Zeit,feminin,Zeit,Zeiten,Zeit,Zeiten,Zeit,Zeiten,Zeit,Zeiten
+Zeitung,feminin,Zeitung,Zeitungen,Zeitung,Zeitungen,Zeitung,Zeitungen,Zeitung,Zeitungen
+Zentimeter,"maskulin, Neutrum",Zentimeter,Zentimeter,Zentimeters,Zentimeter,Zentimeter,Zentimetern,Zentimeter,Zentimeter
+Zigarette,feminin,Zigarette,Zigaretten,Zigarette,Zigaretten,Zigarette,Zigaretten,Zigarette,Zigaretten
+Zimmer,Neutrum,Zimmer,Zimmer,Zimmers,Zimmer,Zimmer,Zimmern,Zimmer,Zimmer
+Zoll,maskulin,Zoll,Zölle,Zoll(e)s,Zölle,Zoll,Zöllen,Zoll,Zölle
+Zug,maskulin,Zug,Züge,Zug(e)s,Züge,Zug,Zügen,Zug,Züge
