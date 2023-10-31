@@ -29,6 +29,10 @@ The following non-primary dictionary entries are not included in A1:
 - "der Schild (Schutzwaffe)"
 - "der Stock (Bestand)"
 - "der Stock (Stab)"
+- "das Tag (Markierung)"
+- "der Tag (Jazz Sachbegriff)"
+- "das Tee (Golf)"
+- "Text (nur im Plural; Schriftgrad)"
 
 ## Länder
 
