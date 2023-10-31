@@ -10,7 +10,14 @@
     <tr>
         <th>Nominativ</th>
         <td>
-            <div id="singular_nominativ">##ART## {{nominativ}}</div>
+            <div id="singular_nominativ">
+                {{#nominativ}}
+                    ##ART## {{nominativ}}
+                {{/nominativ}}
+                {{^nominativ}}
+                    &mdash;
+                {{/nominativ}}
+            </div>
         </td>
         <td>
             <div id="plural_nominativ">
@@ -24,9 +31,39 @@
         </td>
     </tr>
     <tr>
+        <th>Akkusativ</th>
+        <td>
+            <div id="singular_akkusativ">
+                {{#akkusativ}}
+                    ##ART## {{akkusativ}}
+                {{/akkusativ}}
+                {{^akkusativ}}
+                    &mdash;
+                {{/akkusativ}}
+            </div>
+        </td>
+        <td>
+            <div id="plural_akkusativ">
+                {{#akkusativ_plural}}
+                    ##ART## {{akkusativ_plural}}
+                {{/akkusativ_plural}}
+                {{^akkusativ_plural}}
+                    &mdash;
+                {{/akkusativ_plural}}
+            </div>
+        </td>
+    </tr>
+    <tr>
         <th>Genitiv</th>
         <td>
-            <div id="singular_genitiv">##ART## {{genitiv}}</div>
+            <div id="singular_genitiv">
+                {{#genitiv}}
+                    ##ART## {{genitiv}}
+                {{/genitiv}}
+                {{^genitiv}}
+                    &mdash;
+                {{/genitiv}}
+            </div>
         </td>
         <td>
             <div id="plural_genitiv">
@@ -42,7 +79,14 @@
     <tr>
         <th>Dativ</th>
         <td>
-            <div id="singular_dativ">##ART## {{dativ}}</div>
+            <div id="singular_dativ">
+                {{#dativ}}
+                    ##ART## {{dativ}}
+                {{/dativ}}
+                {{^dativ}}
+                    &mdash;
+                {{/dativ}}
+            </div>
         </td>
         <td>
             <div id="plural_dativ">
@@ -52,22 +96,6 @@
                 {{^dativ_plural}}
                     &mdash;
                 {{/dativ_plural}}
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <th>Akkusativ</th>
-        <td>
-            <div id="singular_akkusativ">##ART## {{akkusativ}}</div>
-        </td>
-        <td>
-            <div id="plural_akkusativ">
-                {{#akkusativ_plural}}
-                    ##ART## {{akkusativ_plural}}
-                {{/akkusativ_plural}}
-                {{^akkusativ_plural}}
-                    &mdash;
-                {{/akkusativ_plural}}
             </div>
         </td>
     </tr>

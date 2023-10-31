@@ -92,9 +92,11 @@ VERB := praesens_singular_1 praeteritum_singular_1 \
 define create_template
 %.$$(template).create.template:
 	@echo "[create_template] generating template model for $$*/$(template)"
-	@cat ./src/note_templates/$$*/main.part.html > ./build/note_models/$$*/$(template).html
+	@if [[ "$(template)" =~ ^singular ]]; then echo "{{#nominativ}}" > ./build/note_models/$$*/$(template).html; elif [[ "$(template)" =~ ^plural ]]; then echo "{{#nominativ_plural}}"  > ./build/note_models/$$*/$(template).html; fi
+	@cat ./src/note_templates/$$*/main.part.html >> ./build/note_models/$$*/$(template).html
 	@sed "s-%%TYPE%%-$(template)-g; s-%%IS_FRONT%%-true-g" ./src/note_templates/common/footer.part.html >> ./build/note_models/$$*/$(template).html
 	@cat ./src/note_templates/$$*/script.part.html >> ./build/note_models/$$*/$(template).html
+	@if [[ "$(template)" =~ ^singular ]]; then echo "{{/nominativ}}" >> ./build/note_models/$$*/$(template).html; elif [[ "$(template)" =~ ^plural ]]; then echo "{{/nominativ_plural}}"  >> ./build/note_models/$$*/$(template).html; fi
 	@echo "" >> ./build/note_models/$$*/$(template).html
 	@echo "---" >> ./build/note_models/$$*/$(template).html
 	@echo "" >> ./build/note_models/$$*/$(template).html

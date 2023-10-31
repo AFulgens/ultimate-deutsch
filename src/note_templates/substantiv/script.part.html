@@ -1,51 +1,56 @@
 <script>
     var articles = new Map()
     articles.set("plural_nominativ", "die")
+    articles.set("plural_akkusativ", "die")
     articles.set("plural_genitiv", "der")
     articles.set("plural_dativ", "den")
-    articles.set("plural_akkusativ", "die")
 
     if ("{{geschlecht}}".indexOf("maskulin") !== -1) {
         if ("{{geschlecht}}".indexOf("(maskulin)") !== -1) {
             articles.set("singular_nominativ", "(der)")
+            articles.set("singular_akkusativ", "(den)")
             articles.set("singular_genitiv", "(des)")
             articles.set("singular_dativ", "(dem)")
-            articles.set("singular_akkusativ", "(den)")
         } else {
             articles.set("singular_nominativ", "der")
+            articles.set("singular_akkusativ", "den")
             articles.set("singular_genitiv", "des")
             articles.set("singular_dativ", "dem")
-            articles.set("singular_akkusativ", "den")
         }
     }
 
     if ("{{geschlecht}}".indexOf("feminin") !== -1) {
         if ("{{geschlecht}}".indexOf("(feminin)") !== -1) {
             articles.set("singular_nominativ", articles.has("singular_nominativ") ? articles.get("singular_nominativ") + " (oder die)" : "(die)")
+            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " (oder die)" : "(die)")
             articles.set("singular_genitiv", articles.has("singular_genitiv") ? articles.get("singular_genitiv") + " (oder der)" : "(der)")
             articles.set("singular_dativ", articles.has("singular_dativ") ? articles.get("singular_dativ") + " (oder der)" : "(der)")
-            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " (oder die)" : "(die)")
         } else {
             articles.set("singular_nominativ", articles.has("singular_nominativ") ? articles.get("singular_nominativ") + " oder die" : "die")
+            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " oder die" : "die")
             articles.set("singular_genitiv", articles.has("singular_genitiv") ? articles.get("singular_genitiv") + " oder der" : "der")
             articles.set("singular_dativ", articles.has("singular_dativ") ? articles.get("singular_dativ") + " oder der" : "der")
-            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " oder die" : "die")
         }
     }
 
     if ("{{geschlecht}}".indexOf("Neutrum") !== -1) {
         if ("{{geschlecht}}".indexOf("(Neutrum)") !== -1) {
             articles.set("singular_nominativ", articles.has("singular_nominativ") ? articles.get("singular_nominativ") + " (oder das)" : "(das)")
+            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " (oder das)" : "(das)")
             articles.set("singular_genitiv", articles.has("singular_genitiv") ? articles.get("singular_genitiv") + " (oder des)" : "(des)")
             articles.set("singular_dativ", articles.has("singular_dativ") ? articles.get("singular_dativ") + " (oder dem)" : "(dem)")
-            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " (oder das)" : "(das)")
         } else {
             articles.set("singular_nominativ", articles.has("singular_nominativ") ? articles.get("singular_nominativ") + " oder das" : "das")
+            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " oder das" : "das")
             articles.set("singular_genitiv", articles.has("singular_genitiv") ? articles.get("singular_genitiv") + " oder des" : "des")
             articles.set("singular_dativ", articles.has("singular_dativ") ? articles.get("singular_dativ") + " oder dem" : "dem")
-            articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") + " oder das" : "das")
         }
     }
+
+    articles.set("singular_nominativ", articles.has("singular_nominativ") ? articles.get("singular_nominativ") : "—")
+    articles.set("singular_akkusativ", articles.has("singular_akkusativ") ? articles.get("singular_akkusativ") : "—")
+    articles.set("singular_genitiv", articles.has("singular_genitiv") ? articles.get("singular_genitiv") : "—")
+    articles.set("singular_dativ", articles.has("singular_dativ") ? articles.get("singular_dativ") : "—")
 
     articles.forEach((value, key) => {
         var curr = document.getElementById(key)
