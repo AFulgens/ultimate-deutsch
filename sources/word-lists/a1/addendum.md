@@ -26,6 +26,9 @@ The following non-primary dictionary entries are not included in A1:
 - "das Ort (das Ende einer Strecke)"
 - "der Post (Basketball Sachbegriff)"
 - "der Post (Beitrag)"
+- "der Schild (Schutzwaffe)"
+- "der Stock (Bestand)"
+- "der Stock (Stab)"
 
 ## Länder
 
