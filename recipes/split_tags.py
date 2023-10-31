@@ -20,8 +20,8 @@ def get_freq_class(row):
     return None
 
 
-def normalize_freq(row, maxFreq):
-    return int(round(100.0 - int((row["haeufigkeitsklasse"]) * 100.0 / maxFreq), 0))
+def normalize_freq(row, minFreq, maxFreq):
+    return 100.0 - (int(int(row["haeufigkeitsklasse"]) - minFreq) / (maxFreq - minFreq) * (100.0 - 1.0))
 
 
 generated = pd.read_csv("build/data/c/wort.csv")
@@ -30,11 +30,13 @@ generated.set_index("wort")
 generated["niveau"] = generated.apply(get_niveau, axis=1)
 generated["haeufigkeitsklasse"] = generated.apply(get_freq_class, axis=1)
 
+minFreq = 1000
 maxFreq = -1
 for index, row in generated.iterrows():
+    minFreq = min(minFreq, int(row["haeufigkeitsklasse"]))
     maxFreq = max(maxFreq, int(row["haeufigkeitsklasse"]))
 
-generated["haeufigkeitsklasse"] = generated.apply(normalize_freq, args=(maxFreq,), axis=1)
+generated["haeufigkeitsklasse"] = generated.apply(normalize_freq, args=(minFreq, maxFreq), axis=1)
 
 
 generated.to_csv("build/data/c/wort.csv", header=True, index=False)
