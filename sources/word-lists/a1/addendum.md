@@ -8,7 +8,7 @@
 - 4th, 5th meaning of "aufstehen" ("auf etwas stehen; aufruhen", resp. "offen stehen, geöffnet sein")
   have their perfect form with "ist" instead of "hat". These forms are currently omitted in the notes.
 
-The following non-primary meanings are not included in A1:
+The following non-primary dictionary entries are not included in A1:
 
 - "(das) Essen (Eigennamen)"
 - "das Gewicht (Horn)"
@@ -24,6 +24,8 @@ The following non-primary meanings are not included in A1:
 - "die Mutter (Schraubenmutter)"
 - "der/das Ort (Ahle)"
 - "das Ort (das Ende einer Strecke)"
+- "der Post (Basketball Sachbegriff)"
+- "der Post (Beitrag)"
 
 ## Länder
 
