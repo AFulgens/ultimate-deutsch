@@ -87,7 +87,7 @@ In table with Wiki-links:
 - Combination cards, for example as ideas:
   - Add cards for imperative (S/2, P/2) → But make is optional!
   - Simply card for translation
-  - Instead of one for each person, have one for a mood ⊕ tense
+  - Instead of one for each person, have one for a mood ⊕ tense ("kommen, kam, ist gekommen")
   - Instead of one for each casus, have one for singular and one for plural
 - Fill descriptions
 - Fill Readme, take inspiration from Ultimate Geography.
