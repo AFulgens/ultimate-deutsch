@@ -2,6 +2,11 @@
 
 [See full word-list here.](./A1.csv)
 
+## To Dos
+
+- "geboren"
+- "gestorben"
+
 ## Notizen
 
 - 2nd meaning of "ankreuzen" ("gegen den Wind segeln") is currently omitted in the notes.
@@ -34,6 +39,7 @@ The following non-primary dictionary entries are not included in A1:
 - "das Tee (Golf)"
 - "Text (nur im Plural; Schriftgrad)"
 - "der Wetter (männliche Person, die wettet)"
+- "gebären (zur Welt bringen)" (via "geboren")
 
 ## Länder
 
@@ -97,8 +103,8 @@ Other notable changes:
 - "lieber" removed in favor of gern → lieber → am liebsten
 - "Bogen" removed, but "Antwortbogen" added, I think this is a mistake in the word-list (cf. section "Wortschatz").
   Similarly added the verbs "ergänzen" and "zuordnen".
-- The verbs "öffnen" and close "schließen" are special in the sense that their second participle
-  "ist geöffnet" resp. "ist geschlossen" are included in the word list,
+- The verbs "öffnen", "schließen", and "sterben" are special in the sense that their second participle
+  "ist geöffnet", "ist geschlossen", "ist gestorben" are included in the word list,
   however there is no easy way to include that card in the deck for only some of the verbs 🫠
 - The verb "mögen" is special in the sense that the forms "möchten", "mögen", and "magst" are listed.
   This is to be fixed with the question "which cards for verbs are included in the A1 deck?" later on.
