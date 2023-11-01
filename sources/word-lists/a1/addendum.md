@@ -40,6 +40,8 @@ The following non-primary dictionary entries are not included in A1:
 - "Text (nur im Plural; Schriftgrad)"
 - "der Wetter (männliche Person, die wettet)"
 - "gebären (zur Welt bringen)" (via "geboren")
+- "kosten (Geschmack probieren)"
+- "kriege (Krieg führen)"
 
 ## Länder
 
