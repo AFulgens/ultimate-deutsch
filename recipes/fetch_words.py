@@ -42,7 +42,7 @@ columns = [
 
 
 def fetch_klass(word):
-    url = "https://corpora.uni-leipzig.de/de/res?corpusId=deu_news_2022&word=" + word
+    url = "https://corpora.uni-leipzig.de/de/res?corpusId=deu_news_2022&word=" + urllib.parse.quote(word)
     site = urllib.request.urlopen(url).read()
 
     return BeautifulSoup(site, features="html.parser") \
@@ -118,11 +118,14 @@ source = pd.read_csv("sources/word-lists/a1/A1.csv")
 words = pd.read_csv("src/data/wort.csv")
 verbs = pd.read_csv("src/data/verb.csv")
 
+print("Word            Uni Leipzig     Duden", flush=True)
 for word in sys.argv[1:]:
 
+    print('{0:<16}'.format(word), end='', flush=True)
     new_word = pd.DataFrame(
         [{"wort": word, "tags": "UD::Goethe::A1,UD::UniLeipzig::" + fetch_klass(word)}])
     words = pd.concat([words, new_word], ignore_index=True)
+    print("     ✓          ", end='', flush=True)
 
     entry = source.loc[source["wort"] == word]
     if entry.wortart.values[0] == "Verb":
@@ -130,7 +133,10 @@ for word in sys.argv[1:]:
     elif entry.wortart.values[0] == "Substantiv":
         print("TODO")
 
+    print("  ✓  ", flush=True)
+
 sort_by_caseless_columns(words, ["wort"]) \
     .to_csv("src/data/wort.csv", header=True, index=False)
 sort_by_caseless_columns(verbs, ["wort"]) \
     .to_csv("src/data/verb.csv", header=True, index=False)
+exec(open("recipes/merge_and_sort.py").read())
