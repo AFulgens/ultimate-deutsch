@@ -43,6 +43,7 @@ The following non-primary dictionary entries are not included in A1:
 - "kosten (Geschmack probieren)"
 - "kriege (Krieg führen)"
 - "lesen (einzeln abnehmen)"
+- "mieten (lagern)" https://www.duden.de/konjugation/mieten_lagern
 
 ## Länder
 
