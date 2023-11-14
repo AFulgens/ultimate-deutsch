@@ -41,7 +41,7 @@ The following non-primary dictionary entries are not included in A1:
 - "der Wetter (männliche Person, die wettet)"
 - "gebären (zur Welt bringen)" (via "geboren")
 - "kosten (Geschmack probieren)"
-- "kriege (Krieg führen)"
+- "kriegen (Krieg führen)"
 - "lesen (einzeln abnehmen)"
 - "mieten (lagern)" https://www.duden.de/konjugation/mieten_lagern
 
