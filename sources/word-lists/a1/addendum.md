@@ -4,8 +4,7 @@
 
 ## To Dos
 
-- "geboren"
-- "gestorben"
+- Reformat "Notizen"
 
 ## Notizen
 
@@ -39,10 +38,9 @@ The following non-primary dictionary entries are not included in A1:
 - "das Tee (Golf)"
 - "Text (nur im Plural; Schriftgrad)"
 - "der Wetter (männliche Person, die wettet)"
-- "gebären (zur Welt bringen)" (via "geboren")
-- "kosten (Geschmack probieren)"
-- "kriegen (Krieg führen)"
-- "lesen (einzeln abnehmen)"
+- "kosten (Geschmack probieren)" https://www.duden.de/konjugation/kosten_schmecken
+- "kriegen (Krieg führen)" https://www.duden.de/konjugation/kriegen_bekaempfen
+- "lesen (einzeln abnehmen)" https://www.duden.de/konjugation/lesen_aufsammeln
 - "mieten (lagern)" https://www.duden.de/konjugation/mieten_lagern
 - "umziehen (umzogen)" https://www.duden.de/rechtschreibung/umziehen_umzogen
 - "wiederholen (zurückholen)" https://www.duden.de/rechtschreibung/wiederholen_wiedergeholt
@@ -109,8 +107,8 @@ Other notable changes:
 - "lieber" removed in favor of gern → lieber → am liebsten
 - "Bogen" removed, but "Antwortbogen" added, I think this is a mistake in the word-list (cf. section "Wortschatz").
   Similarly added the verbs "ergänzen" and "zuordnen".
-- The verbs "öffnen", "schließen", "sterben", "verbieten" are special in the sense that their second participle
-  "ist geöffnet", "ist geschlossen", "ist gestorben", "ist verboten" are included in the word list,
+- The verbs "gebären", "öffnen", "schließen", "sterben", "verbieten" are special in the sense that their second participle
+  "ist geboren", "ist geöffnet", "ist geschlossen", "ist gestorben", "ist verboten" are included in the word list,
   however there is no easy way to include that card in the deck for only some of the verbs 🫠
 - The verb "mögen" is special in the sense that the forms "möchten", "mögen", and "magst" are listed.
   This is to be fixed with the question "which cards for verbs are included in the A1 deck?" later on.
