@@ -108,8 +108,8 @@ Other notable changes:
 - "lieber" removed in favor of gern → lieber → am liebsten
 - "Bogen" removed, but "Antwortbogen" added, I think this is a mistake in the word-list (cf. section "Wortschatz").
   Similarly added the verbs "ergänzen" and "zuordnen".
-- The verbs "öffnen", "schließen", and "sterben" are special in the sense that their second participle
-  "ist geöffnet", "ist geschlossen", "ist gestorben" are included in the word list,
+- The verbs "öffnen", "schließen", "sterben", "verbieten" are special in the sense that their second participle
+  "ist geöffnet", "ist geschlossen", "ist gestorben", "ist verboten" are included in the word list,
   however there is no easy way to include that card in the deck for only some of the verbs 🫠
 - The verb "mögen" is special in the sense that the forms "möchten", "mögen", and "magst" are listed.
   This is to be fixed with the question "which cards for verbs are included in the A1 deck?" later on.
