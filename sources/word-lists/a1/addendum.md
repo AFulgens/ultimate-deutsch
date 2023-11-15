@@ -44,6 +44,7 @@ The following non-primary dictionary entries are not included in A1:
 - "kriegen (Krieg führen)"
 - "lesen (einzeln abnehmen)"
 - "mieten (lagern)" https://www.duden.de/konjugation/mieten_lagern
+- "umziehen (umzogen)" https://www.duden.de/rechtschreibung/umziehen_umzogen
 
 ## Länder
 
