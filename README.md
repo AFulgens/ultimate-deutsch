@@ -96,6 +96,7 @@ In table with Wiki-links:
 - Publish it via Anki Cloud
 - What to do with multiple meaning in the dictionary?
   - Especially for verbs with differing auxiliary verbs for different meanings?
+- „werden“?
 
 ## Open questions
 
