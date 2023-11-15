@@ -71,6 +71,7 @@ def fetch_verb_from_duden(wort, link):
                        .children)
         next(current)
         for entry in current:
+            if entry == '\n': continue
             new_verb[next(column_iter)] = entry.contents[0]
 
     imperativ = \
@@ -78,15 +79,23 @@ def fetch_verb_from_duden(wort, link):
             .find_all(attrs={"class": "accordion-tables__header"}, string="Imperativ")[0] \
             .next_sibling.next_sibling.div.div.div.ul.next_sibling
     new_verb[next(column_iter)] = imperativ.li.contents[0]
-    new_verb[next(column_iter)] = imperativ.li.next_sibling.contents[0]
+    if imperativ.li.next_sibling == '\n':
+        new_verb[next(column_iter)] = imperativ.li.next_sibling.next_sibling.contents[0]
+    else:
+        new_verb[next(column_iter)] = imperativ.li.next_sibling.contents[0]
 
     infinite = \
         BeautifulSoup(site, features="html.parser") \
             .find_all(attrs={"class": "accordion-tables__header"}, string="Infinite Formen")[0] \
             .next_sibling.next_sibling.div
-    new_verb[next(column_iter)] = infinite.div.div.ul.li.next_sibling.contents[0]
-    new_verb[next(column_iter)] = infinite.div.next_sibling.div.ul.li.next_sibling.contents[0]
-    new_verb[next(column_iter)] = infinite.div.next_sibling.next_sibling.div.ul.li.next_sibling.contents[0]
+    if infinite.div.next_sibling == '\n':
+        new_verb[next(column_iter)] = infinite.div.div.ul.li.next_sibling.next_sibling.contents[0]
+        new_verb[next(column_iter)] = infinite.div.next_sibling.next_sibling.div.ul.li.next_sibling.next_sibling.contents[0]
+        new_verb[next(column_iter)] = infinite.div.next_sibling.next_sibling.next_sibling.next_sibling.div.ul.li.next_sibling.next_sibling.contents[0]
+    else:
+        new_verb[next(column_iter)] = infinite.div.div.ul.li.next_sibling.contents[0]
+        new_verb[next(column_iter)] = infinite.div.next_sibling.div.ul.li.next_sibling.contents[0]
+        new_verb[next(column_iter)] = infinite.div.next_sibling.next_sibling.div.ul.li.next_sibling.contents[0]
 
     aux_verb = BeautifulSoup(site, features="html.parser") \
         .find(string=re.compile(".*Perfektbildung mit „.*"))
