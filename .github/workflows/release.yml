@@ -100,7 +100,7 @@ jobs:
       with:
         ref: main
     - name: Download release artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         path: release
     - uses: ncipollo/release-action@v1
